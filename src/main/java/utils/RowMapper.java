@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public interface RowMapper<T> {
 
     /**
-     *
+     * Encapsulate an object with type T.
      * @param rs The result of the sql query from the DB.
      * @return An specified object which corresponds to one piece of data.
      * @throws SQLException

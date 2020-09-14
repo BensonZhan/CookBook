@@ -13,5 +13,6 @@
     <orderEntry type="library" exported="" name="mysql-connector-java-8.0.15" level="project" />
     <orderEntry type="library" exported="" name="javafx-11" level="project" />
     <orderEntry type="library" exported="" name="javafx--11" level="project" />
+    <orderEntry type="library" exported="" name="ValidateCode" level="project" />
   </component>
 </module>

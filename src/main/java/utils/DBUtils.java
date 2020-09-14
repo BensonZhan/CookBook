@@ -90,6 +90,17 @@ public class DBUtils {
     }
 
     /**
+     * Close the transaction.
+     * @throws SQLException
+     */
+    public static void closeTx() throws SQLException {
+        conn = getConnection();
+        if (conn != null) {
+            conn.setAutoCommit(true);
+        }
+    }
+
+    /**
      * Commit the transaction.
      * @throws SQLException
      */

@@ -5,6 +5,10 @@ import org.junit.Test;
 
 import java.sql.SQLException;
 
+/**
+ * Test whether DB visit works.
+ * @author Guozhi Zhan
+ */
 public class TestDaoTest {
 
 
