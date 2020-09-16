@@ -14,5 +14,6 @@
     <orderEntry type="library" exported="" name="javafx-11" level="project" />
     <orderEntry type="library" exported="" name="javafx--11" level="project" />
     <orderEntry type="library" exported="" name="ValidateCode" level="project" />
+    <orderEntry type="library" exported="" name="itextpdf-5.4.3" level="project" />
   </component>
 </module>

@@ -25,6 +25,12 @@ public class Ingredient {
         this.recipeId = recipeId;
     }
 
+    public Ingredient(String amount, String ingredientName, String prepAction) {
+        this.amount = amount;
+        this.ingredientName = ingredientName;
+        this.prepAction = prepAction;
+    }
+
     public int getId() {
         return id;
     }
@@ -67,12 +73,6 @@ public class Ingredient {
 
     @Override
     public String toString() {
-        return "Ingredient{" +
-                "id=" + id +
-                ", ingredientName='" + ingredientName + '\'' +
-                ", amount=" + amount +
-                ", prepAction='" + prepAction + '\'' +
-                ", recipeId=" + recipeId +
-                '}';
+        return amount + " " + ingredientName + " " + prepAction;
     }
 }

@@ -103,4 +103,8 @@ public class LoginModel {
         }
         return res;
     }
+
+    public List<Recipe> getRecipes() {
+        return recipes;
+    }
 }

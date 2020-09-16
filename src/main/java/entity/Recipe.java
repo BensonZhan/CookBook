@@ -20,6 +20,7 @@ public class Recipe {
     private int cookTime;
     private String picPath;
     private List<String> instructions;
+    private List<Ingredient> ingredients;
 
     public int getId() {
         return id;
@@ -75,6 +76,14 @@ public class Recipe {
 
     public void setInstructions(List<String> instructions) {
         this.instructions = instructions;
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
     }
 
     @Override
