@@ -190,7 +190,7 @@ public class LoginView extends Application {
         result.setVisible(false);
         fade = new FadeTransition();
         fade.setNode(result);
-        fade.setDuration(Duration.seconds(0.1));
+        fade.setDuration(Duration.seconds(1));
         fade.setFromValue(0);
         fade.setToValue(1);
 
