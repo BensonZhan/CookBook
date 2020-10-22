@@ -2,14 +2,6 @@ CREATE DATABASE cookbook;
 
 use cookbook;
 
-create table test(
-id int primary key,
-username varchar(10) not null
-);
-
-insert into test
-values
-(1, "张三");
 
 // user
 CREATE TABLE users(
@@ -86,9 +78,10 @@ create table <userId>(
     instructions varchar(500)
 );
 
+// The name of the recipe in the user's favorite is unique.
 create table a123456 (
     id int primary key auto_increment,
-    recipe_name varchar(50) not null,
+    recipe_name varchar(50) unique not null,
     prep_time int not null,
     serve int not null,
     cook_time int not null,
@@ -102,8 +95,8 @@ create table <userId>_ingre(
     name varchar(30) not null,
     amount varchar(15) not null,
     action varchar(100),
-    recipe_id int,
-    constraint fk_id foreign key(recipe_id) references <userId>(id)
+    recipe_name varchar(50),
+    constraint fk_id foreign key(recipe_name) references <userId>(recipe_name)
 );
 
 insert into admin123
@@ -113,10 +106,10 @@ values
 
 insert into a123456_ingre
 values
-(default, "500g", "pork belly", "cut into cubes around 2 inches", 1),
+(default, "500g", "pork belly", "cut into cubes around 2 inches", Hong Shao Rou---Red Braised Pork Belly),
 (default, "4 tablespoons", "light soy sauce", "", 1),
-(default, "2 tablespoons", "brown sugar", "broken if u have large pieces", 1),
+(default, "2 tablespoons", "brown sugar", "broken if u have large pieces", Hong Shao Rou---Red Braised Pork Belly),
 (default, "2 inches", "ginger", "cut into slices", 1),
-(default, "4","green onions", "1 finely chopped for garnish and the left into long sections", 1),
+(default, "4","green onions", "1 finely chopped for garnish and the left into long sections", Hong Shao Rou---Red Braised Pork Belly),
 (default, "1 cup", "hot water", "", 1),
-(default, "", "oil", "for brushing (optional if you are using iron wok)", 1);
+(default, "", "oil", "for brushing (optional if you are using iron wok)", Hong Shao Rou---Red Braised Pork Belly);

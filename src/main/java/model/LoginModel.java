@@ -107,4 +107,15 @@ public class LoginModel {
     public List<Recipe> getRecipes() {
         return recipes;
     }
+
+    /**
+     * Get the userId of the user.
+     * @return The userId of the user if the user has logged in, or if not, return null.
+     */
+    public String getUserId() {
+        if (user != null) {
+            return user.getUserId();
+        }
+        return null;
+    }
 }
