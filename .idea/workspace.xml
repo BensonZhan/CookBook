@@ -16,30 +16,23 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:1.0.0" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/AddIngredientsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/CreateRecipeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/OutputPDFController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/OutputTXTController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/SaveRecipeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/UnstarController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/SaveRecipeModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/DetailedRecipeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="2020.10.21&#10;BY Yang Haoran">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/SaveRecipeDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/impl/SaveRecipeDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CookBook/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CookBook/controller/DetailedInformationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/controller/DetailedInformationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CookBook/utils/DBUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/utils/DBUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CookBook/view/LoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/view/LoginView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CookBook/view/MainView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/view/MainView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/CookBook/META-INF/CookBook.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DetailedInformationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DetailedInformationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/DBUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/DBUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SaveRecipeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SaveRecipeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SaveRecipeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SaveRecipeModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/DetailedRecipeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/DetailedRecipeView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/validateCode.png" beforeDir="false" afterPath="$PROJECT_DIR$/validateCode.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,6 +87,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -104,6 +98,12 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="0YHR0" />
+        <option value="Yang Haoran" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
@@ -135,7 +135,7 @@
     <property name="project.structure.proportion" value="0.15247019" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -288,8 +288,19 @@
       <workItem from="1603137830934" duration="1811000" />
       <workItem from="1603227417576" duration="592000" />
       <workItem from="1603264231010" duration="658000" />
-      <workItem from="1603292481848" duration="14825000" />
+      <workItem from="1603292481848" duration="17107000" />
+      <workItem from="1603375899840" duration="13776000" />
+      <workItem from="1603450767081" duration="4730000" />
+      <workItem from="1603543944564" duration="272000" />
     </task>
+    <task id="LOCAL-00001" summary="2020.10.21&#10;BY Yang Haoran">
+      <created>1603310559279</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603310559279</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +311,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="1.0.0" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -324,40 +347,46 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <MESSAGE value="2020.10.21&#10;BY Yang Haoran" />
+    <option name="LAST_COMMIT_MESSAGE" value="2020.10.21&#10;BY Yang Haoran" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1086" y="426" key="#com.intellij.ide.util.MemberChooser" timestamp="1603309377644">
+    <state x="1086" y="426" key="#com.intellij.ide.util.MemberChooser" timestamp="1603387631220">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="1086" y="426" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1440@0.0.2560.1440" timestamp="1603309377644" />
-    <state x="1060" y="474" key="FileChooserDialogImpl" timestamp="1603111724372">
+    <state x="1086" y="426" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1440@0.0.2560.1440" timestamp="1603387631220" />
+    <state x="1060" y="474" key="FileChooserDialogImpl" timestamp="1603544231873">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="1060" y="474" key="FileChooserDialogImpl/0.0.2560.1440@0.0.2560.1440" timestamp="1603111724372" />
-    <state width="2516" height="406" key="GridCell.Tab.0.bottom" timestamp="1603119599680">
+    <state x="1060" y="474" key="FileChooserDialogImpl/0.0.2560.1440@0.0.2560.1440" timestamp="1603544231873" />
+    <state width="2516" height="406" key="GridCell.Tab.0.bottom" timestamp="1603400393377">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="2516" height="406" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1603119599680" />
-    <state width="2516" height="406" key="GridCell.Tab.0.center" timestamp="1603119599680">
+    <state width="2516" height="406" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1603400393377" />
+    <state width="2516" height="406" key="GridCell.Tab.0.center" timestamp="1603400393377">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="2516" height="406" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1603119599680" />
-    <state width="2516" height="406" key="GridCell.Tab.0.left" timestamp="1603119599680">
+    <state width="2516" height="406" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1603400393377" />
+    <state width="2516" height="406" key="GridCell.Tab.0.left" timestamp="1603400393377">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="2516" height="406" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1603119599680" />
-    <state width="2516" height="406" key="GridCell.Tab.0.right" timestamp="1603119599680">
+    <state width="2516" height="406" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1603400393377" />
+    <state width="2516" height="406" key="GridCell.Tab.0.right" timestamp="1603400393377">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="2516" height="406" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1603119599680" />
-    <state x="782" y="365" key="SettingsEditor" timestamp="1603134023275">
+    <state width="2516" height="406" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1603400393377" />
+    <state x="782" y="365" key="SettingsEditor" timestamp="1603544233878">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="782" y="365" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1603134023275" />
+    <state x="782" y="365" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1603544233878" />
     <state x="1077" y="632" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603114317876">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="1077" y="632" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1440@0.0.2560.1440" timestamp="1603114317876" />
+    <state x="985" y="507" key="git4idea.merge.GitPullDialog" timestamp="1603544119433">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="985" y="507" key="git4idea.merge.GitPullDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1603544119433" />
     <state x="668" y="381" key="new project wizard" timestamp="1603133816523">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>

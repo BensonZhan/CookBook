@@ -6,7 +6,7 @@ import model.SaveRecipeModel;
 import view.DetailedRecipeView;
 
 /**
- * The controler act on save button
+ * The controller act on save button
  * @author Haoran Yang
  */
 public class SaveRecipeController implements EventHandler<ActionEvent> {
@@ -17,7 +17,7 @@ public class SaveRecipeController implements EventHandler<ActionEvent> {
     }
     @Override
     public void handle(ActionEvent actionEvent) {
-        model.save(view.getRecipeName(), view.getPrepTime(), view.getServe(), view.getInstructions(), view.getIngredients());
+        model.save(view.getRecipeName(), view.getPrepTime(), view.getServe(), view.getCookTime(), view.getInstructions(), view.getIngredients());
         view.saveUpdate();
 
     }

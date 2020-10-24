@@ -72,10 +72,19 @@ public class DetailedRecipeView {
         lIngredients.setText("Ingredients :");
         tIngredients = new ArrayList<TextField>();
         add = new Button("+");
+        /**
+         * ingredients
+         */
+        List<Ingredient> ingredients = recipe.getIngredients();
         int i = 0;
-        for(Ingredient in: recipe.getIngredients()){
-            tIngredients.add(new TextField(in.toString()));
+        for(i = 0; i < 7; i++){
+            tIngredients.add(new TextField(ingredients.get(i).getIngredientName()));
+            tIngredients.add(new TextField(ingredients.get(i).getAmount()));
+            tIngredients.add(new TextField(ingredients.get(i).getPrepAction()));
         }
+        //for(Ingredient in: recipe.getIngredients()){
+        //    tIngredients.add(new TextField(in.toString()));
+        //}
         lInstructions = new Label();
         lInstructions.setText("Instruction :");
         tInstructions = new TextArea();
@@ -128,7 +137,26 @@ public class DetailedRecipeView {
      * @return the list of ingredients
      */
     public List<Ingredient> getIngredients(){
-        return  recipe.getIngredients();
+        List<Ingredient> temp = new ArrayList<Ingredient>();
+        List<Ingredient> ingredient = this.recipe.getIngredients();
+        for(Ingredient in: ingredient){
+            temp.add(in);
+        }
+        if(this.recipe.getIngredients().size() < 7){
+            for(int i = this.recipe.getIngredients().size(); i < 7; i++){
+                ingredient.add(new Ingredient());
+            }
+        }
+        int j = 0;
+        for(int i = 0; i < 21;i = i + 3){
+                ingredient.get(j).setIngredientName(tIngredients.get(i).getText());
+                ingredient.get(j).setAmount(tIngredients.get(i + 1).getText());
+                ingredient.get(j).setPrepAction(tIngredients.get(i + 2).getText());
+                ingredient.get(j).setRecipeId(this.recipe.getId());
+                j++;
+        }
+
+        return  temp;
     }
 
     /**
@@ -168,6 +196,9 @@ public class DetailedRecipeView {
      * the pop up window of pressing the save button
      */
     public void saveUpdate(){
+        /**
+         * 读取状态还没判断
+         */
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                           alert.setTitle("save");
                           alert.setContentText("Your recipe has been saved");
