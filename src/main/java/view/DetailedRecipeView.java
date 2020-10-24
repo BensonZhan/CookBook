@@ -152,7 +152,7 @@ public class DetailedRecipeView {
                 ingredient.get(j).setIngredientName(tIngredients.get(i).getText());
                 ingredient.get(j).setAmount(tIngredients.get(i + 1).getText());
                 ingredient.get(j).setPrepAction(tIngredients.get(i + 2).getText());
-                ingredient.get(j).setRecipeId(this.recipe.getId());
+//                ingredient.get(j).setRecipeId(this.recipe.getId());
                 j++;
         }
 
