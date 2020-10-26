@@ -18,6 +18,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.RegisterModel;
 
 /**
  * The registerBtn window.
@@ -46,6 +47,7 @@ public class RegisterView {
 
 
     private RegisterController registerController= new RegisterController(this);
+    private RegisterModel model = RegisterModel.getRegisterModel();
 
     /**
      * The constructor which will initialize all the nodes.
@@ -157,30 +159,6 @@ public class RegisterView {
     }
 
     /**
-     * Get the id from user input.
-     * @return The id of the user account.
-     */
-    public String getUserId() {
-        return tUsername.getText();
-    }
-
-    /**
-     * Get the password from user input.
-     * @return The password of the user account.
-     */
-    public String getPassword() {
-        return tPassword.getText();
-    }
-
-    /**
-     * Get the nickname from user input.
-     * @return The nickname of the user account.
-     */
-    public String getNickname() {
-        return tNickname.getText();
-    }
-
-    /**
      * Show whether the user has registered successfully or not.
      * @param res -1 means "Id format error"; -2 means "Password format error", -3 means "Nickname format error"; 0 means "Account has existed";
      * 1 means "Account add successfully", 2 means "Software is upgrading".
@@ -206,4 +184,17 @@ public class RegisterView {
         result.setVisible(true);
         fade.play();
     }
+
+    /**
+     * Collect the user inputs and set them to the model layer.
+     */
+    public void setInputs() {
+        String id = tUsername.getText();
+        String password = tPassword.getText();
+        String nickname = tNickname.getText();
+        System.out.println("register id:" + id + ", password: " + password + ", nickname: " + nickname);
+        model.setInputs(id, password, nickname);
+    }
+
+
 }

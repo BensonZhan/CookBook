@@ -21,6 +21,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.LoginModel;
 
 import java.io.File;
 
@@ -50,6 +51,8 @@ public class LoginView extends Application {
     private ForwardRegisterController forwardRegisterController = new ForwardRegisterController();
     private ChangeValCodeController valCodeController = new ChangeValCodeController(this);
     private LoginController loginController = new LoginController(this);
+    private LoginModel model = LoginModel.getLoginModel();
+    private MainView mainView = new MainView();
 
     private boolean hasShowed = false;
 
@@ -91,46 +94,22 @@ public class LoginView extends Application {
     /**
      * Close the Login Window.
      */
-    public void close() {
+    private void close() {
         this.stage.close();
     }
 
     /**
      * Change the picture of the validate code.
-     * @param path The file path of the validate code.
      */
-    public void changeValCode(String path) {
+    public void changeValCode() {
+        String path = model.changeValidateCode();
         if (path != null) {
             File file = new File(path);
             String uri = file.toURI().toString();
-            ImageView valCode = new ImageView(uri.toString());
+            ImageView valCode = new ImageView(uri);
             picValCode.setGraphic(valCode);
             tValCode.setText("");
         }
-    }
-
-    /**
-     * Get the user id.
-     * @return The id of user.
-     */
-    public String getUserId() {
-        return tUserId.getText();
-    }
-
-    /**
-     * Get the password entered by the user.
-     * @return The password of the user.
-     */
-    public String getPassword() {
-        return tPassword.getText();
-    }
-
-    /**
-     * Get the validate code entered by the user.
-     * @return The validate code.
-     */
-    public String getValidateCode() {
-        return tValCode.getText();
     }
 
     /**
@@ -138,7 +117,7 @@ public class LoginView extends Application {
      * @param res -1 means "Id error"; -2 means "Password error", -3 means "Validate error"; 0 means "Account has not existed";
      * 1 means "Login successfully".
      */
-    public void showResult(int res) {
+    private void showResult(int res) {
         String resStr = null;
         if (res == -1) {
             resStr = "Id error!";
@@ -232,5 +211,24 @@ public class LoginView extends Application {
         stage.setHeight(480);
         stage.getIcons().add(new Image(this.getClass().getClassLoader().getResource("icons/cookCap.png").toExternalForm()));
         hasShowed = true;
+    }
+
+    /**
+     * Collect the user input and log in.
+     */
+    public void login() {
+        String userId = tUserId.getText();
+        String password = tPassword.getText();
+        String valCode = tValCode.getText();
+
+        int res = model.login(userId, password, valCode);
+        if (res == 1) {
+            // Login successfully
+            mainView.setRecipes(model.getRecipes());
+            mainView.start();
+            close();
+        } else {
+            showResult(res);
+        }
     }
 }
