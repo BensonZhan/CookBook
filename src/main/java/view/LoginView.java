@@ -2,6 +2,7 @@ package view;
 
 import controller.ChangeValCodeController;
 import controller.ForwardRegisterController;
+import controller.LoginController;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
