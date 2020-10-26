@@ -11,13 +11,12 @@ import view.DetailedRecipeView;
  */
 public class SaveRecipeController implements EventHandler<ActionEvent> {
     DetailedRecipeView view;
-    SaveRecipeModel model = new SaveRecipeModel();
+    SaveRecipeModel model = SaveRecipeModel.getInstance();
     public SaveRecipeController(DetailedRecipeView view){
         this.view = view;
     }
     @Override
     public void handle(ActionEvent actionEvent) {
-        model.save(view.getRecipeName(), view.getPrepTime(), view.getServe(), view.getCookTime(), view.getInstructions(), view.getIngredients());
         view.saveUpdate();
 
     }

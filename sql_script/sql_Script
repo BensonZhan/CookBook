@@ -90,7 +90,7 @@ create table a123456 (
 );
 
 // user fav ingredient
-create table <userId>_ingre(
+create table <userId>_ing(
     id primary key auto_increment,
     name varchar(30) not null,
     amount varchar(15) not null,

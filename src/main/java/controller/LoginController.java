@@ -39,6 +39,7 @@ public class LoginController implements EventHandler<ActionEvent> {
         if (res == 1) {
             // Login successfully
             mainView.setRecipes(model.getRecipes());
+            mainView.setUserId(userId);
             mainView.start();
             loginView.close();
         } else {

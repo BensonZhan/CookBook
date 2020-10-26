@@ -24,7 +24,7 @@ public class DetailedInformationController implements EventHandler<ActionEvent> 
         System.out.println(recipe);
 
         // step into the detailed information window
-        detailedRecipeView.start(recipe);
+        detailedRecipeView.start(recipe, view.getUserId(), true);
 
 
     }

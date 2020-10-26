@@ -5,6 +5,7 @@ import dao.impl.SaveRecipeDaoImpl;
 import entity.Ingredient;
 import entity.Recipe;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -13,9 +14,30 @@ import java.util.List;
  */
 
 public class SaveRecipeModel {
+    private static SaveRecipeModel model;
     private SaveRecipeDao dao = new SaveRecipeDaoImpl();
-    public int save(String recipeName, String prepTime, String serve, String cookTime, List<String> instructions, List<Ingredient> ingredients){
+    private SaveRecipeModel(){}
+    public static SaveRecipeModel getInstance(){
+        if(model == null){
+            synchronized (SaveRecipeModel.class){
+                if(model == null){
+                    model = new SaveRecipeModel();
+                }
+            }
+        }
+        return model;
+    }
+    public int save(String userId, String recipeName, String prepTime, String serve, String cookTime, List<String> instructions, List<Ingredient> ingredients, String picpath){
+        String in = "";
+        for(String str: instructions){
+            in = in + str + "$";
+        }
 
-        return dao.saveRecipe(recipeName, Integer.parseInt(prepTime),Integer.parseInt(serve),Integer.parseInt(cookTime),instructions,ingredients);
+        try {
+            return dao.saveRecipe(userId, recipeName, Integer.parseInt(prepTime),Integer.parseInt(serve),Integer.parseInt(cookTime), in,ingredients, picpath);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            return -1;
+        }
     }
 }

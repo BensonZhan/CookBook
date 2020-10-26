@@ -3,6 +3,7 @@ package dao;
 import entity.Ingredient;
 
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -19,7 +20,7 @@ public interface SaveRecipeDao {
      * @param ingredients: the ingredients
      * @return: the number of rows influenced
      */
-    int saveRecipe(String recipeName, int prepTime, int serve, int cookTime, List<String> instructions, List<Ingredient> ingredients);
+    int saveRecipe(String userId, String recipeName, int prepTime, int serve, int cookTime, String instructions, List<Ingredient> ingredients,String picpath) throws SQLException;
 
 
 }

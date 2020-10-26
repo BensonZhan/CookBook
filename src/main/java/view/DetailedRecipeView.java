@@ -4,9 +4,18 @@ import controller.CreateRecipeController;
 import controller.UnstarController;
 import entity.Ingredient;
 import entity.Recipe;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import model.OutputPDFModel;
+import model.OutputTXTModel;
+import model.SaveRecipeModel;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -21,12 +30,19 @@ import java.util.Scanner;
 public class DetailedRecipeView {
     private Recipe recipe;
     private Stage stage;
+    private String userId;
+    private BorderPane root = new BorderPane();
+    private GridPane upperPane = new GridPane();
+    private VBox rightPane = new VBox();
+    private GridPane centerPane = new GridPane();
+    private FlowPane bottomPane = new FlowPane();
 
     private Button saveRecipeBtn;
     private Button outputPDFBtn;
     private Button outputTXTBtn;
     private Button unstarBtn;
     private UnstarController unstarController = new UnstarController(this);
+    private Label lRecipeName;
     private TextField tRecipeName;
     private Label lPrepTime;
     private TextField tPrepTime;
@@ -40,32 +56,52 @@ public class DetailedRecipeView {
     private Label lInstructions;
     private TextArea tInstructions;
     private CreateRecipeController createRecipeController = new CreateRecipeController();
+    private SaveRecipeModel saveModel = SaveRecipeModel.getInstance();
+    private FileChooser chooser;
+    private OutputPDFModel pdfModel;
+    private OutputTXTModel txtModel;
+
+    public DetailedRecipeView(Recipe recipe, String userId, boolean modify) {
+
+        start(recipe, userId, modify);
+    }
+
+    public DetailedRecipeView() {
+
+    }
+
 
     /**
      * start show the detailed recipe view
-     * @param recipe: the recipe to shown
+     * @param recipe :the recipe to be showed
+     * @param userId: the user ID
+     * @param modify: whether can be modified
      */
-    public void start(Recipe recipe){
+    public void start(Recipe recipe, String userId, boolean modify){
         /**
          * initialize the view
          */
         this.recipe = recipe;
+        this.userId = userId;
         saveRecipeBtn = new Button("save");
         outputPDFBtn = new Button("outputAs PDF");
         outputTXTBtn = new Button("outputAs TXT");
         unstarBtn = new Button("unstar");
+        ImageView star = new ImageView("icons/star.png");
+        unstarBtn.setGraphic(star);
+        lRecipeName = new Label("Recipe name : ");
         tRecipeName = new TextField();
         tRecipeName.setText(recipe.getRecipeName());
         lPrepTime = new Label();
-        lPrepTime.setText("Prep Time");
+        lPrepTime.setText("Prep Time : ");
         tPrepTime = new TextField();
         tPrepTime.setText(recipe.getPrepTime() + "");
         lServe = new Label();
-        lServe.setText("Serve");
+        lServe.setText("Serve: ");
         tServe = new TextField();
         tServe.setText(recipe.getServe() + "");
         lCookTime = new Label();
-        lCookTime.setText("CookTime");
+        lCookTime.setText("CookTime : ");
         tCookTime = new TextField();
         tCookTime.setText(recipe.getCookTime() + "");
         lIngredients = new Label();
@@ -86,10 +122,23 @@ public class DetailedRecipeView {
         //    tIngredients.add(new TextField(in.toString()));
         //}
         lInstructions = new Label();
-        lInstructions.setText("Instruction :");
+        lInstructions.setText("Instruction : ");
         tInstructions = new TextArea();
         for(String str: recipe.getInstructions()){
-            tInstructions.setText(tInstructions.getText() + "/n" + str);
+            tInstructions.setText(tInstructions.getText() + "\n" + str);
+        }
+        /**
+         * whether can be modified
+         */
+        if(modify == false){
+            tRecipeName.setEditable(false);
+            tPrepTime.setEditable(false);
+            tServe.setEditable(false);
+            tInstructions.setEditable(false);
+            tCookTime.setEditable(false);
+            for(TextField textField: tIngredients){
+                textField.setEditable(false);
+            }
         }
 
 
@@ -97,6 +146,19 @@ public class DetailedRecipeView {
         /**
          * 布局还没写: add
          */
+        stage = new Stage();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle(recipe.getRecipeName());
+        root.setPrefWidth(640);
+        root.setPrefHeight(480);
+
+        // initial layout
+        initialUpper();
+        initialRight();
+        initialCenter();
+        initialBottom();
+
         stage.show();
 
     }
@@ -131,6 +193,12 @@ public class DetailedRecipeView {
     public String getCookTime(){
         return tCookTime.getText();
     }
+
+    /**
+     * get the pic path of the recipe
+     * @return the pic path
+     */
+    public String getPicpath(){ return recipe.getPicPath(); }
 
     /**
      * get the list of ingredients
@@ -182,6 +250,12 @@ public class DetailedRecipeView {
     }
 
     /**
+     * get the userId
+     * @return userId
+     */
+    public String getUserId(){ return userId;}
+
+    /**
      * update when add the number of ingredients
      */
     public void addUpdate(){
@@ -196,19 +270,29 @@ public class DetailedRecipeView {
      * the pop up window of pressing the save button
      */
     public void saveUpdate(){
-        /**
-         * 读取状态还没判断
-         */
+        //call the model to handle
+        int result = saveModel.save(getUserId(), getRecipeName(), getPrepTime(), getServe(), getCookTime(), getInstructions(), getIngredients(), recipe.getPicPath());
+        if(result >= 1){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                           alert.setTitle("save");
                           alert.setContentText("Your recipe has been saved");
                           alert.showAndWait();
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("save");
+            alert.setContentText("Your recipe FAIL to be saved");
+            alert.showAndWait();
+        }
     }
 
     /**
      * the pop up window of unstar the recipe
      */
     public void unstarUpdate(){
+        /**
+         * 还没处理
+         */
         Alert alert = new Alert(Alert.AlertType.ERROR);
                                 alert.setTitle("unstar");
                                 alert.setContentText("Your recipe has been unstared");
@@ -217,27 +301,90 @@ public class DetailedRecipeView {
 
     /**
      * the update of the window when save as PDF
-     * @return the url
      */
-    public String updatePDF(){
-        /**
-         * filechooser返回路径，还没写
-         */
-        return "";
+    public void updatePDF(){
+
+        chooser = new FileChooser();
+        pdfModel = new OutputPDFModel();
+        File file = chooser.showOpenDialog(stage);
+        String path = file.getAbsolutePath();
+        String type = path.substring(path.length() - 3, path.length());
+        if(type.equals("pdf")){
+            try {
+                pdfModel.printPDF(recipe, path);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("save as pdf");
+            alert.setContentText("Fail to save as PDF");
+            alert.showAndWait();
+        }
+
+
     }
 
     /**
      * the update of the window when save as TXT
-     * @return the url
      */
-    public String updateTXT(){
-        /**
-         * filechooser 返回路径，还没写
-         */
-        return "";
+    public void updateTXT(){
+        chooser = new FileChooser();
+        txtModel = new OutputTXTModel();
+        File file = chooser.showOpenDialog(stage);
+        String path = file.getAbsolutePath();
+        String type = path.substring(path.length() - 3, path.length());
+        if(type.equals("txt")){
+            try {
+                txtModel.printTXT(recipe, path);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("save as pdf");
+            alert.setContentText("Fail to save as TXT");
+            alert.showAndWait();
+
+        }
     }
 
 
+    private void initialUpper() {
+
+        upperPane.add(lRecipeName, 0, 0);
+        upperPane.add(tRecipeName, 1, 0);
+        upperPane.add(lServe, 0, 1);
+        upperPane.add(tServe, 1, 1);
+        upperPane.add(lCookTime, 0,2);
+        upperPane.add(tCookTime, 1, 2);
+        upperPane.add(lPrepTime, 0, 3);
+        upperPane.add(tPrepTime, 1, 3);
+        upperPane.setMaxWidth(200);
+        upperPane.setPrefWidth(180);
+
+        root.setTop(upperPane);
+    }
+
+    private void initialRight() {
+        rightPane.getChildren().addAll(saveRecipeBtn, outputPDFBtn, outputTXTBtn);
+        rightPane.setPrefHeight(80);
+        rightPane.setMaxHeight(100);
+        rightPane.setStyle("-fx-background-color:#C1FFC1");
+        rightPane.setSpacing(20);
+
+        root.setRight(rightPane);
+    }
+
+    private void initialCenter() {
+    }
+
+    private void initialBottom () {
+        bottomPane.getChildren().addAll(lInstructions, tInstructions);
+        root.setBottom(bottomPane);
+    }
 
 
 }
