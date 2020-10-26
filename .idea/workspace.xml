@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:1.0.0" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f7e19dc2-7ac9-4850-89dd-2a80c1a11d4f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/META-INF/CookBook.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/controller/AddIngredientsController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/controller/ChangeValCodeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/controller/CreateRecipeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/controller/DetailedInformationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/controller/ForwardRegisterController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/controller/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/controller/OutputPDFController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/controller/OutputTXTController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/controller/RegisterController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/controller/SaveRecipeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/controller/UnstarController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/dao/LoginDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/dao/RegisterDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/dao/SaveRecipeDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/dao/StarDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/dao/impl/LoginDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/dao/impl/RegisterDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/dao/impl/SaveRecipeDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/dao/impl/StarDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/entity/Ingredient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/entity/Recipe.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/entity/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/icons/cookCap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/icons/star.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/icons/unstar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/model/LoginModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/model/OutputPDFModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/model/OutputTXTModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/model/RegisterModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/model/SaveRecipeModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/model/StarModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/utils/DBUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/utils/RecipeMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/utils/RowMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/utils/StringMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/utils/UserMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/view/DetailedRecipeView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/view/LoginView$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/view/LoginView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/view/MainView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/view/RegisterView$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/view/RegisterView$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/view/RegisterView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/CookBook/META-INF/CookBook.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/CookBook/dao/LoginDaoTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/CookBook/dao/RegisterDaoTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/CookBook/model/OutputPDFModelTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/CookBook/model/OutputTXTModelTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/CookBook/model/StarModelTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ChangeValCodeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ChangeValCodeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/RegisterDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/RegisterDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/RegisterModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RegisterModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RegisterView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validateCode.png" beforeDir="false" afterPath="$PROJECT_DIR$/validateCode.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="RunManager">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="App" />
+      <module name="CookBook" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="736" y="375" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603748692578">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="736" y="375" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1603748692578" />
+    <state width="2516" height="406" key="GridCell.Tab.0.bottom" timestamp="1603748755210">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2516" height="406" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1603748755210" />
+    <state width="2516" height="406" key="GridCell.Tab.0.center" timestamp="1603748755210">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2516" height="406" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1603748755210" />
+    <state width="2516" height="406" key="GridCell.Tab.0.left" timestamp="1603748755210">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2516" height="406" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1603748755210" />
+    <state width="2516" height="406" key="GridCell.Tab.0.right" timestamp="1603748755210">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2516" height="406" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1603748755210" />
+    <state x="985" y="507" key="git4idea.merge.GitPullDialog" timestamp="1603748854837">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="985" y="507" key="git4idea.merge.GitPullDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1603748854837" />
+  </component>
+</project>
