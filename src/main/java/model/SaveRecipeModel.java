@@ -27,14 +27,14 @@ public class SaveRecipeModel {
         }
         return model;
     }
-    public int save(String userId, String recipeName, String prepTime, String serve, String cookTime, List<String> instructions, List<Ingredient> ingredients, String picpath){
+    public int save(String userId, String recipeName, String prepTime, String serve, String cookTime, List<String> instructions, List<Ingredient> ingredients, String picpath, int recipeId){
         String in = "";
         for(String str: instructions){
             in = in + str + "$";
         }
 
         try {
-            return dao.saveRecipe(userId, recipeName, Integer.parseInt(prepTime),Integer.parseInt(serve),Integer.parseInt(cookTime), in,ingredients, picpath);
+            return dao.saveRecipe(userId, recipeName, Integer.parseInt(prepTime),Integer.parseInt(serve),Integer.parseInt(cookTime), in,ingredients, picpath, recipeId);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             return -1;

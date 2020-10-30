@@ -20,7 +20,7 @@ public interface SaveRecipeDao {
      * @param ingredients: the ingredients
      * @return: the number of rows influenced
      */
-    int saveRecipe(String userId, String recipeName, int prepTime, int serve, int cookTime, String instructions, List<Ingredient> ingredients,String picpath) throws SQLException;
+    int saveRecipe(String userId, String recipeName, int prepTime, int serve, int cookTime, String instructions, List<Ingredient> ingredients,String picpath, int recipeID) throws SQLException;
 
 
 }

@@ -2,6 +2,7 @@ package view;
 
 import controller.CreateRecipeController;
 import controller.UnstarController;
+import dao.impl.DetailedRecipeDaoImpl;
 import entity.Ingredient;
 import entity.Recipe;
 import javafx.scene.Scene;
@@ -29,6 +30,8 @@ import java.util.Scanner;
  */
 public class DetailedRecipeView {
     private Recipe recipe;
+    private List<Ingredient> ingredients;
+    private DetailedRecipeDaoImpl detailedRecipeDao = new DetailedRecipeDaoImpl();
     private Stage stage;
     private String userId;
     private BorderPane root = new BorderPane();
@@ -81,6 +84,9 @@ public class DetailedRecipeView {
         /**
          * initialize the view
          */
+        String recipeName = recipe.getRecipeName();
+        ingredients = detailedRecipeDao.getRecipe(recipeName, userId);
+
         this.recipe = recipe;
         this.userId = userId;
         saveRecipeBtn = new Button("save");
@@ -111,7 +117,7 @@ public class DetailedRecipeView {
         /**
          * ingredients
          */
-        List<Ingredient> ingredients = recipe.getIngredients();
+        //List<Ingredient> ingredients = recipe.getIngredients();
         int i = 0;
         for(i = 0; i < 7; i++){
             tIngredients.add(new TextField(ingredients.get(i).getIngredientName()));
@@ -271,7 +277,7 @@ public class DetailedRecipeView {
      */
     public void saveUpdate(){
         //call the model to handle
-        int result = saveModel.save(getUserId(), getRecipeName(), getPrepTime(), getServe(), getCookTime(), getInstructions(), getIngredients(), recipe.getPicPath());
+        int result = saveModel.save(getUserId(), getRecipeName(), getPrepTime(), getServe(), getCookTime(), getInstructions(), getIngredients(), recipe.getPicPath(),recipe.getId());
         if(result >= 1){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                           alert.setTitle("save");
