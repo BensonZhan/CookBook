@@ -26,6 +26,7 @@ import java.util.List;
  */
 public class MainView {
     private List<Recipe> recipes;
+    private String userId;
 
     private Stage stage;
     private BorderPane root;
@@ -40,8 +41,9 @@ public class MainView {
     private DetailedInformationController detailedController = new DetailedInformationController(this);
     private SearchRecipeModel searchRecipeModel = new SearchRecipeModel();
 
-    public MainView(List<Recipe> recipes) {
+    public MainView(List<Recipe> recipes, String userId) {
         this.recipes = recipes;
+        this.userId = userId;
 
         initialNodes();
     }
@@ -94,6 +96,14 @@ public class MainView {
 
     public void setRecipes(List<Recipe> recipes) {
         this.recipes = recipes;
+    }
+
+    public void setUserId(String userId){
+        this.userId = userId;
+    }
+
+    public String getUserId(){
+        return userId;
     }
 
     private void initializeRecipes() {

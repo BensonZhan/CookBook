@@ -29,12 +29,8 @@ public class RegisterController implements EventHandler<ActionEvent> {
      */
     @Override
     public void handle(ActionEvent actionEvent) {
-        String id = registerView.getUserId();
-        String password = registerView.getPassword();
-        String nickname = registerView.getNickname();
-        System.out.println("register id:" + id + ", password: " + password + ", nickname: " + nickname);
-
-        int res = registerModel.register(id, password, nickname);
+        registerView.setInputs();
+        int res = registerModel.register();
         registerView.showResult(res);
 
     }

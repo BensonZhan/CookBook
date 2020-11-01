@@ -2,6 +2,7 @@ package model;
 
 import dao.RegisterDao;
 import dao.impl.RegisterDaoImpl;
+import entity.User;
 import utils.DBUtils;
 
 import java.sql.SQLException;
@@ -17,6 +18,7 @@ public class RegisterModel {
 
     private RegisterDao registerDao = new RegisterDaoImpl();
     private static RegisterModel registerModel;
+    private User user;
 
     private RegisterModel() {
 
@@ -41,16 +43,17 @@ public class RegisterModel {
 
     /**
      * Register an account with user.
-     * @param userId The id of user account.
-     * @param password The password of user account.
-     * @param nickname The nickname of user account.
      * @return -1 means "Id format error"; -2 means "Password format error", -3 means "Nickname format error"; 0 means "Account has existed";
      * 1 means "Account add successfully", 2 means "Software is upgrading'.
      */
-    public int register(String userId, String password, String nickname) {
+    public int register() {
         int res = 0;
         try {
             DBUtils.startTx();
+
+            String userId = user.getUserId();
+            String password = user.getPasswd();
+            String nickname = user.getNickname();
 
             if (userId == null  || !userId.trim().matches("[a-zA-Z]\\w{4,15}")) {
                 return -1;
@@ -89,5 +92,18 @@ public class RegisterModel {
         }
 
         return res;
+    }
+
+    /**
+     * Set the attributes of a user which will be registered.
+     * @param userId The id of user account.
+     * @param password The password of user account.
+     * @param nickname The nickname of user account.
+     */
+    public void setInputs(String userId, String password, String nickname) {
+        user = new User();
+        user.setUserId(userId);
+        user.setPasswd(password);
+        user.setNickname(nickname);
     }
 }

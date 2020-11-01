@@ -23,12 +23,12 @@ public class RegisterDaoImpl implements RegisterDao {
     @Override
     public void createFavTable(String userId) throws SQLException {
         System.out.println(userId);
-        String sql1 = "create table " + userId + " (id int primary key auto_increment, recipe_name varchar(50) not null, prep_time int not null," +
+        String sql1 = "create table " + userId + " (id int primary key auto_increment, recipe_name varchar(50) unique not null, prep_time int not null," +
                 "serve int not null, cook_time int not null, picPath varchar(60) not null, instructions varchar(500));";
         DBUtils.executeUpdate(sql1);
         String sql2 = "create table "+ userId +"_ing (id int primary key auto_increment, name varchar(30) not null,\n" +
-                " amount varchar(15) not null, action varchar(100), recipe_id int, " +
-                "constraint fk_id1 foreign key(recipe_id) references " + userId +"(id)" +
+                " amount varchar(15) not null, action varchar(100), recipe_name varchar(50), " +
+                "foreign key(recipe_name) references " + userId +"(recipe_name)" +
                 ");";
         DBUtils.executeUpdate(sql2);
     }

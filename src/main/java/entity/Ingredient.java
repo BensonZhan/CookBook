@@ -12,17 +12,17 @@ public class Ingredient {
     private String ingredientName;
     private String amount;
     private String prepAction;
-    private int recipeId;
+    private String recipeName;
 
     public Ingredient() {
     }
 
-    public Ingredient(int id, String ingredientName, String amount, String prepAction, int recipeId) {
+    public Ingredient(int id, String ingredientName, String amount, String prepAction, String recipeName) {
         this.id = id;
         this.ingredientName = ingredientName;
         this.amount = amount;
         this.prepAction = prepAction;
-        this.recipeId = recipeId;
+        this.recipeName = recipeName;
     }
 
     public Ingredient(String amount, String ingredientName, String prepAction) {
@@ -63,12 +63,12 @@ public class Ingredient {
         this.prepAction = prepAction;
     }
 
-    public int getRecipeId() {
-        return recipeId;
+    public String getRecipeName() {
+        return recipeName;
     }
 
-    public void setRecipeId(int recipeId) {
-        this.recipeId = recipeId;
+    public void setRecipeName(String recipeName) {
+        this.recipeName = recipeName;
     }
 
     @Override

@@ -50,6 +50,7 @@ public class LoginModel {
             valCode = new ValidateCode(100, 40, 4, 5);
             File file = new File("./validateCode.png");
             valCode.write(file.getAbsolutePath());
+            System.out.println(file.getAbsolutePath());
             return file.getAbsolutePath();
         } catch (IOException e) {
             e.printStackTrace();
@@ -106,5 +107,16 @@ public class LoginModel {
 
     public List<Recipe> getRecipes() {
         return recipes;
+    }
+
+    /**
+     * Get the userId of the user.
+     * @return The userId of the user if the user has logged in, or if not, return null.
+     */
+    public String getUserId() {
+        if (user != null) {
+            return user.getUserId();
+        }
+        return null;
     }
 }
