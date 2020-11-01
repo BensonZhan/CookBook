@@ -13,7 +13,9 @@ import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+//import model.SearchRecipeModel;
 
+//import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +38,7 @@ public class MainView {
     private Button searchRecipeBtn;
 
     private DetailedInformationController detailedController = new DetailedInformationController(this);
+    private SearchRecipeModel searchRecipeModel = new SearchRecipeModel();
 
     public MainView(List<Recipe> recipes) {
         this.recipes = recipes;
@@ -116,5 +119,28 @@ public class MainView {
             Label label = new Label("No recipes have been stared already.");
             content.getChildren().add(label);
         }
+    }
+
+    public DetailedInformationController getDetailedController() {
+        return detailedController;
+    }
+
+    public List<Recipe> searchRecipe() throws SQLException {
+        String name = tSearchRecipe.getText();
+        List<Recipe> recipes= searchRecipeModel.searchRecipe(name);
+        return recipes;
+    }
+
+    public SearchRecipeView getSearchRecipeView() {
+        SearchRecipeView searchRecipeView = new SearchRecipeView();
+        searchRecipeView.getRecipeInfo();
+        return searchRecipeView;
+    }
+
+    public List<Recipe> getRecipes(){return recipes;}
+    public Button getSearchRecipeBtn(){return searchRecipeBtn;}
+    public String getTSearchRecipe(){
+        tSearchRecipe.getText();
+        return null;
     }
 }
