@@ -23,5 +23,6 @@ public class SearchRecipeController {
             mainView.searchRecipe();
             searchRecipeModel.searchRecipe(name);
         }
+        if(e.getSource() == searchRecipeView.)
     }
 }

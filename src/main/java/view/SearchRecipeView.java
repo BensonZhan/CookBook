@@ -78,4 +78,5 @@ public class SearchRecipeView {
         }
         return ;
     }
+    public void getButtonGroup(){return showRecipes(group);}
 }
