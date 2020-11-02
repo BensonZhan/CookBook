@@ -1,0 +1,39 @@
+<changelist name="Uncommitted_changes_before_Update_at_2020_11_2_17_25_[Default_Changelist]" date="1604334308896" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_11_2_17_25_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2020/11/2 17:25 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/CookBook/model/SaveRecipeModel.class" />
+    <option name="AFTER_PATH" value="out/production/CookBook/model/SaveRecipeModel.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_11_2_17_25_[Default_Changelist]/SaveRecipeModel.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/CookBook/dao/SaveRecipeDao.class" />
+    <option name="AFTER_PATH" value="out/production/CookBook/dao/SaveRecipeDao.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_11_2_17_25_[Default_Changelist]/SaveRecipeDao.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/CookBook/dao/impl/SaveRecipeDaoImpl.class" />
+    <option name="AFTER_PATH" value="out/production/CookBook/dao/impl/SaveRecipeDaoImpl.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_11_2_17_25_[Default_Changelist]/SaveRecipeDaoImpl.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/CookBook/controller/DetailedInformationController.class" />
+    <option name="AFTER_PATH" value="out/production/CookBook/controller/DetailedInformationController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_11_2_17_25_[Default_Changelist]/DetailedInformationController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/CookBook/view/DetailedRecipeView.class" />
+    <option name="AFTER_PATH" value="out/production/CookBook/view/DetailedRecipeView.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_11_2_17_25_[Default_Changelist]/DetailedRecipeView.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="validateCode.png" />
+    <option name="AFTER_PATH" value="validateCode.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_11_2_17_25_[Default_Changelist]/validateCode.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/CookBook/view/LoginView.class" />
+    <option name="AFTER_PATH" value="out/production/CookBook/view/LoginView.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_11_2_17_25_[Default_Changelist]/LoginView.class" />
+  </binary>
+</changelist>
