@@ -1,17 +1,15 @@
 package view;
 
-import controller.CreateRecipeController;
-import controller.UnstarController;
+import controller.SaveRecipeController;
+import controller.StarRecipeController;
 import dao.impl.DetailedRecipeDaoImpl;
 import entity.Ingredient;
 import entity.Recipe;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.OutputPDFModel;
@@ -35,16 +33,16 @@ public class DetailedRecipeView {
     private Stage stage;
     private String userId;
     private BorderPane root = new BorderPane();
-    private GridPane upperPane = new GridPane();
+    private HBox upperPane = new HBox();
     private VBox rightPane = new VBox();
     private GridPane centerPane = new GridPane();
     private FlowPane bottomPane = new FlowPane();
 
     private Button saveRecipeBtn;
+    private Button starRecipeBtn;
     private Button outputPDFBtn;
     private Button outputTXTBtn;
     private Button unstarBtn;
-    private UnstarController unstarController = new UnstarController(this);
     private Label lRecipeName;
     private TextField tRecipeName;
     private Label lPrepTime;
@@ -58,115 +56,103 @@ public class DetailedRecipeView {
     private Button add;
     private Label lInstructions;
     private TextArea tInstructions;
-    private CreateRecipeController createRecipeController = new CreateRecipeController();
+
+
+//    private CreateRecipeController createRecipeController = new CreateRecipeController();
+    private SaveRecipeController saveRecipeController = new SaveRecipeController(this);
+    private StarRecipeController starRecipeController = new StarRecipeController(this);
     private SaveRecipeModel saveModel = SaveRecipeModel.getInstance();
     private FileChooser chooser;
     private OutputPDFModel pdfModel;
     private OutputTXTModel txtModel;
 
-    public DetailedRecipeView(Recipe recipe, String userId, boolean modify) {
-
-        start(recipe, userId, modify);
-    }
-
     public DetailedRecipeView() {
 
-    }
-
-
-    /**
-     * start show the detailed recipe view
-     * @param recipe :the recipe to be showed
-     * @param userId: the user ID
-     * @param modify: whether can be modified
-     */
-    public void start(Recipe recipe, String userId, boolean modify){
         /**
          * initialize the view
          */
-        String recipeName = recipe.getRecipeName();
-        ingredients = detailedRecipeDao.getRecipe(recipeName, userId);
-
-        this.recipe = recipe;
-        this.userId = userId;
         saveRecipeBtn = new Button("save");
-        outputPDFBtn = new Button("outputAs PDF");
-        outputTXTBtn = new Button("outputAs TXT");
+        starRecipeBtn = new Button();
+        starRecipeBtn.setGraphic(new ImageView(this.getClass().getClassLoader().getResource("./icons/star.png").toExternalForm()));
+        starRecipeBtn.setStyle("-fx-background-color:#FFFFFF");
+        starRecipeBtn.setUserData("star");
+        outputPDFBtn = new Button("print pdf");
+        outputTXTBtn = new Button("print txt");
         unstarBtn = new Button("unstar");
         ImageView star = new ImageView("icons/star.png");
         unstarBtn.setGraphic(star);
         lRecipeName = new Label("Recipe name : ");
         tRecipeName = new TextField();
-        tRecipeName.setText(recipe.getRecipeName());
         lPrepTime = new Label();
         lPrepTime.setText("Prep Time : ");
         tPrepTime = new TextField();
-        tPrepTime.setText(recipe.getPrepTime() + "");
         lServe = new Label();
         lServe.setText("Serve: ");
         tServe = new TextField();
-        tServe.setText(recipe.getServe() + "");
         lCookTime = new Label();
         lCookTime.setText("CookTime : ");
         tCookTime = new TextField();
-        tCookTime.setText(recipe.getCookTime() + "");
         lIngredients = new Label();
-        lIngredients.setText("Ingredients :");
+        lIngredients.setText("Ingredients : ");
         tIngredients = new ArrayList<TextField>();
-        add = new Button("+");
-        /**
-         * ingredients
-         */
-        //List<Ingredient> ingredients = recipe.getIngredients();
-        int i = 0;
-        for(i = 0; i < 7; i++){
-            tIngredients.add(new TextField(ingredients.get(i).getIngredientName()));
-            tIngredients.add(new TextField(ingredients.get(i).getAmount()));
-            tIngredients.add(new TextField(ingredients.get(i).getPrepAction()));
-        }
-        //for(Ingredient in: recipe.getIngredients()){
-        //    tIngredients.add(new TextField(in.toString()));
-        //}
         lInstructions = new Label();
         lInstructions.setText("Instruction : ");
         tInstructions = new TextArea();
-        for(String str: recipe.getInstructions()){
-            tInstructions.setText(tInstructions.getText() + "\n" + str);
-        }
-        /**
-         * whether can be modified
-         */
-        if(modify == false){
-            tRecipeName.setEditable(false);
-            tPrepTime.setEditable(false);
-            tServe.setEditable(false);
-            tInstructions.setEditable(false);
-            tCookTime.setEditable(false);
-            for(TextField textField: tIngredients){
-                textField.setEditable(false);
-            }
-        }
+        tInstructions.setPrefRowCount(7);
 
 
-
-        /**
-         * 布局还没写: add
-         */
         stage = new Stage();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle(recipe.getRecipeName());
         root.setPrefWidth(640);
         root.setPrefHeight(480);
+        root.setStyle("-fx-background-color:#C1FFC1");
+    }
+
+    /**
+     * start show the detailed recipe view
+     * @param recipe :the recipe to be showed
+     * @param userId: the user ID
+     */
+    public void start(Recipe recipe, String userId){
+        String recipeName = recipe.getRecipeName();
+        ingredients = detailedRecipeDao.getRecipe(recipeName, userId);
+        recipe.setIngredients(ingredients);
+        this.recipe = recipe;
+        this.userId = userId;
+
+        tRecipeName.setText(recipe.getRecipeName());
+        tPrepTime.setText(recipe.getPrepTime() + "");
+        tServe.setText(recipe.getServe() + "");
+        tCookTime.setText(recipe.getCookTime() + "");
+
+
+        /**
+         * ingredients
+         */
+        for(int i = 0; i < 7; i++){
+            tIngredients.add(new TextField(ingredients.get(i).getAmount()));
+            tIngredients.add(new TextField(ingredients.get(i).getIngredientName()));
+            tIngredients.add(new TextField(ingredients.get(i).getPrepAction()));
+        }
+
+
+        String[] instructions = recipe.getInstructions().get(0).split("\\$");
+        if (instructions.length > 0) {
+            tInstructions.setText(instructions[0]);
+        }
+        for(int i = 1; i < instructions.length; i++){
+            tInstructions.setText(tInstructions.getText() + System.getProperty("line.separator") + instructions[i]);
+        }
 
         // initial layout
         initialUpper();
-        initialRight();
+//        initialRight();
         initialCenter();
         initialBottom();
 
+        stage.setTitle(recipe.getRecipeName());
         stage.show();
-
     }
 
     /**
@@ -359,38 +345,58 @@ public class DetailedRecipeView {
 
 
     private void initialUpper() {
+        GridPane informationPane = new GridPane();
+        informationPane.add(lRecipeName, 0, 0);
+        informationPane.add(tRecipeName, 1, 0);
+        informationPane.add(lServe, 0, 1);
+        informationPane.add(tServe, 1, 1);
+        informationPane.add(lCookTime, 0,2);
+        informationPane.add(tCookTime, 1, 2);
+        informationPane.add(lPrepTime, 0, 3);
+        informationPane.add(tPrepTime, 1, 3);
+        informationPane.setMaxWidth(400);
+        informationPane.setMinWidth(300);
+        informationPane.setHgap(10);
+        informationPane.setVgap(5);
 
-        upperPane.add(lRecipeName, 0, 0);
-        upperPane.add(tRecipeName, 1, 0);
-        upperPane.add(lServe, 0, 1);
-        upperPane.add(tServe, 1, 1);
-        upperPane.add(lCookTime, 0,2);
-        upperPane.add(tCookTime, 1, 2);
-        upperPane.add(lPrepTime, 0, 3);
-        upperPane.add(tPrepTime, 1, 3);
-        upperPane.setMaxWidth(200);
-        upperPane.setPrefWidth(180);
+        upperPane.getChildren().addAll(informationPane, saveRecipeBtn, starRecipeBtn, outputPDFBtn, outputTXTBtn);
+        saveRecipeBtn.setOnAction(saveRecipeController);
+        starRecipeBtn.setOnAction(starRecipeController);
+
+        upperPane.setSpacing(20);
 
         root.setTop(upperPane);
     }
 
-    private void initialRight() {
-        rightPane.getChildren().addAll(saveRecipeBtn, outputPDFBtn, outputTXTBtn);
-        rightPane.setPrefHeight(80);
-        rightPane.setMaxHeight(100);
-        rightPane.setStyle("-fx-background-color:#C1FFC1");
-        rightPane.setSpacing(20);
-
-        root.setRight(rightPane);
-    }
-
     private void initialCenter() {
+        centerPane.add(lIngredients, 1, 1);
+        centerPane.add(new Label("Amount"), 2, 1);
+        centerPane.add(new Label("Ingredient name: "), 3, 1);
+        centerPane.add(new Label("Prepared action: "), 4, 1);
+        for (int i = 0; i < 7; i++) {
+            centerPane.add(new Label((i + 1) + ". "), 1, i + 2);
+            centerPane.add(tIngredients.get(i * 3 + 0), 2, i + 2);
+            centerPane.add(tIngredients.get(i * 3 + 1), 3, i + 2);
+            centerPane.add(tIngredients.get(i * 3 + 2), 4, i + 2);
+        }
+        centerPane.setHgap(20);
+        centerPane.setVgap(5);
+        root.setCenter(centerPane);
     }
 
     private void initialBottom () {
         bottomPane.getChildren().addAll(lInstructions, tInstructions);
+        bottomPane.setAlignment(Pos.BOTTOM_CENTER);
         root.setBottom(bottomPane);
     }
 
-
+    public void updateStar(int i) {
+        if (i == 0) {
+            starRecipeBtn.setGraphic(new ImageView(this.getClass().getClassLoader().getResource("./icons/unstar.png").toExternalForm()));
+            starRecipeBtn.setUserData("unstar");
+        } else {
+            starRecipeBtn.setGraphic(new ImageView(this.getClass().getClassLoader().getResource("./icons/star.png").toExternalForm()));
+            starRecipeBtn.setUserData("star");
+        }
+    }
 }

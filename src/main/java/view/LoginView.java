@@ -225,6 +225,7 @@ public class LoginView extends Application {
         if (res == 1) {
             // Login successfully
             mainView.setRecipes(model.getRecipes());
+            mainView.setUserId(tUserId.getText());
             mainView.start();
             close();
         } else {

@@ -7,10 +7,14 @@ import javafx.scene.control.Button;
 import view.DetailedRecipeView;
 import view.MainView;
 
+/**
+ * Show the detailed page which allows for the modification.
+ *
+ * @author Guozhi Zhan
+ */
 public class DetailedInformationController implements EventHandler<ActionEvent> {
 
     private MainView view;
-    private DetailedRecipeView detailedRecipeView = new DetailedRecipeView();
 
     public DetailedInformationController(MainView mainView) {
         this.view = mainView;
@@ -24,7 +28,8 @@ public class DetailedInformationController implements EventHandler<ActionEvent> 
         System.out.println(recipe);
 
         // step into the detailed information window
-        detailedRecipeView.start(recipe, view.getUserId(), true);
+        DetailedRecipeView detailedRecipeView = new DetailedRecipeView();
+        detailedRecipeView.start(recipe, view.getUserId());
 
 
     }
