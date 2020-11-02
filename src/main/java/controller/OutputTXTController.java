@@ -18,7 +18,7 @@ public class OutputTXTController implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         try {
-//            model.printTXT(view.getRecipe(),view.updatePDF());
+            model.printTXT(view.getRecipe(),view.updateTXT());
         } catch (Exception e) {
             e.printStackTrace();
         }
