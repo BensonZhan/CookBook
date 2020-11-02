@@ -18,7 +18,7 @@ import java.util.List;
 public class DetailedRecipeDaoImpl implements DetailedRecipeDao {
     @Override
     public List<Ingredient> getRecipe(String recipeName, String userName) {
-        String sql = "select * from " + userName + "_ing" + "where recipe_name = '" + recipeName + "'";
+        String sql = "select * from " + userName + "_ing" + " where recipe_name = '" + recipeName + "'";
         List<Ingredient> ingredients = new ArrayList<Ingredient>();
         try {
             ingredients = DBUtils.executeQuery(sql, new IngredientMapper());
