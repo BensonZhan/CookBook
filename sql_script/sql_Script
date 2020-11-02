@@ -90,7 +90,7 @@ create table a123456 (
 );
 
 // user fav ingredient
-create table <userId>_ingre(
+create table <userId>_ing(
     id primary key auto_increment,
     name varchar(30) not null,
     amount varchar(15) not null,
@@ -104,12 +104,12 @@ values
 (default, "Hong Shao Rou---Red Braised Pork Belly", 10, 4, 1, "./recipe_pic/hongshaorou.jpg",
 "Clean and cut the pork belly into cubes around 2 inches long.$Boil a large pot of water, add 2 slices of ginger and 2 green onions, cook the pork belly for around 4 minutes. Transfer out and wash with warm water. Set aside and drain.$Heat up wok on medium fire; brush some oil on the bottom. Sautee the pork belly until the surface becomes slightly brown. Transfer the pork cubes out to a pre-heat clay pot with green onion and ginger slices laid in bottle or a plate and leave the oil in.");
 
-insert into a123456_ingre
+insert into admin123_ing (id, amount, name, action, recipe_name)
 values
-(default, "500g", "pork belly", "cut into cubes around 2 inches", Hong Shao Rou---Red Braised Pork Belly),
-(default, "4 tablespoons", "light soy sauce", "", 1),
-(default, "2 tablespoons", "brown sugar", "broken if u have large pieces", Hong Shao Rou---Red Braised Pork Belly),
-(default, "2 inches", "ginger", "cut into slices", 1),
-(default, "4","green onions", "1 finely chopped for garnish and the left into long sections", Hong Shao Rou---Red Braised Pork Belly),
-(default, "1 cup", "hot water", "", 1),
-(default, "", "oil", "for brushing (optional if you are using iron wok)", Hong Shao Rou---Red Braised Pork Belly);
+(default, "500g", "pork belly", "cut into cubes around 2 inches", "Hong Shao Rou---Red Braised Pork Belly"),
+(default, "4 tablespoons", "light soy sauce", "", "Hong Shao Rou---Red Braised Pork Belly"),
+(default, "2 tablespoons", "brown sugar", "broken if u have large pieces", "Hong Shao Rou---Red Braised Pork Belly"),
+(default, "2 inches", "ginger", "cut into slices", "Hong Shao Rou---Red Braised Pork Belly"),
+(default, "4","green onions", "1 finely chopped for garnish and the left into long sections", "Hong Shao Rou---Red Braised Pork Belly"),
+(default, "1 cup", "hot water", "", "Hong Shao Rou---Red Braised Pork Belly"),
+(default, "", "oil", "for brushing (optional if you are using iron wok)", "Hong Shao Rou---Red Braised Pork Belly");

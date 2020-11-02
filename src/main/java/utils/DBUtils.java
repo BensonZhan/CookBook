@@ -82,7 +82,7 @@ public class DBUtils {
      * @throws SQLException
      */
     public static void startTx() throws SQLException {
-        conn = getConnection();
+
 
         if (conn != null) {
             conn.setAutoCommit(false);

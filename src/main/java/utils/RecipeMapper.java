@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * A mapper which is used to encapsulate the recipes.
  *
- * @Guozhi Zhan
+ * @author Guozhi Zhan
  */
 public class RecipeMapper implements RowMapper<Recipe> {
 

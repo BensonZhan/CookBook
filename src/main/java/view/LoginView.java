@@ -169,7 +169,7 @@ public class LoginView extends Application {
         result.setVisible(false);
         fade = new FadeTransition();
         fade.setNode(result);
-        fade.setDuration(Duration.seconds(0.1));
+        fade.setDuration(Duration.seconds(1));
         fade.setFromValue(0);
         fade.setToValue(1);
 
@@ -225,6 +225,7 @@ public class LoginView extends Application {
         if (res == 1) {
             // Login successfully
             mainView.setRecipes(model.getRecipes());
+            mainView.setUserId(tUserId.getText());
             mainView.start();
             close();
         } else {
