@@ -7,6 +7,7 @@ import entity.Ingredient;
 import entity.Recipe;
 
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 
 /**
  * Generate a file of type PDF.
@@ -83,7 +84,12 @@ public class OutputPDFModel {
 
         document.add(new Paragraph("Instructions", attribute));
         List instructions = new List(List.ORDERED);
-        for (String instru : recipe.getInstructions()) {
+        String[] ins = recipe.getInstructions().get(0).split("\\$");
+        java.util.List<String> in = new ArrayList<String>();
+        for(String str: ins){
+            in.add(str);
+        }
+        for (String instru : in) {
             instructions.add(instru);
         }
         document.add(instructions);
