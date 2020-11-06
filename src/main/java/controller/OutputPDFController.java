@@ -18,7 +18,7 @@ public class OutputPDFController implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         try {
-//            model.printPDF(view.getRecipe(),view.updatePDF());
+            model.printPDF(view.getRecipe(),view.updatePDF());
         } catch (Exception e) {
             e.printStackTrace();
         }

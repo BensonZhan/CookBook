@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,7 +32,11 @@ public class OutputTXTModel {
                 pw.println((i + 1) + ". " + ingredients.get(i).toString());
             }
             pw.println("Instructions:");
-            List<String> instrctions = recipe.getInstructions();
+            String[] ins = recipe.getInstructions().get(0).split("\\$");
+            List<String> instrctions = new ArrayList<String>();
+            for(String str: ins){
+                instrctions.add(str);
+            }
             for (int i = 0; i < instrctions.size(); i++) {
                 pw.println((i + 1) + ". " + instrctions.get(i));
             }

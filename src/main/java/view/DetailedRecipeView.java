@@ -1,5 +1,7 @@
 package view;
 
+import controller.OutputPDFController;
+import controller.OutputTXTController;
 import controller.SaveRecipeController;
 import controller.StarRecipeController;
 import dao.impl.DetailedRecipeDaoImpl;
@@ -15,6 +17,7 @@ import javafx.stage.Stage;
 import model.OutputPDFModel;
 import model.OutputTXTModel;
 import model.SaveRecipeModel;
+import model.StarModel;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -58,10 +61,11 @@ public class DetailedRecipeView {
     private TextArea tInstructions;
 
 
-//    private CreateRecipeController createRecipeController = new CreateRecipeController();
+//    private ForwardCreateController createRecipeController = new ForwardCreateController();
     private SaveRecipeController saveRecipeController = new SaveRecipeController(this);
     private StarRecipeController starRecipeController = new StarRecipeController(this);
     private SaveRecipeModel saveModel = SaveRecipeModel.getInstance();
+    private StarModel starModel = StarModel.getModel();
     private FileChooser chooser;
     private OutputPDFModel pdfModel;
     private OutputTXTModel txtModel;
@@ -72,12 +76,15 @@ public class DetailedRecipeView {
          * initialize the view
          */
         saveRecipeBtn = new Button("save");
+        saveRecipeBtn.setOnAction(saveRecipeController);
         starRecipeBtn = new Button();
         starRecipeBtn.setGraphic(new ImageView(this.getClass().getClassLoader().getResource("./icons/star.png").toExternalForm()));
         starRecipeBtn.setStyle("-fx-background-color:#FFFFFF");
         starRecipeBtn.setUserData("star");
         outputPDFBtn = new Button("print pdf");
+        outputPDFBtn.setOnAction(new OutputPDFController(this));
         outputTXTBtn = new Button("print txt");
+        outputTXTBtn.setOnAction(new OutputTXTController(this));
         unstarBtn = new Button("unstar");
         ImageView star = new ImageView("icons/star.png");
         unstarBtn.setGraphic(star);
@@ -253,9 +260,6 @@ public class DetailedRecipeView {
     public void addUpdate(){
         TextField tx = new TextField();
         tIngredients.add(tx);
-        /**
-         * 加到主界面还没写
-         */
     }
 
     /**
@@ -294,7 +298,7 @@ public class DetailedRecipeView {
     /**
      * the update of the window when save as PDF
      */
-    public void updatePDF(){
+    public String updatePDF(){
 
         chooser = new FileChooser();
         pdfModel = new OutputPDFModel();
@@ -304,6 +308,10 @@ public class DetailedRecipeView {
         if(type.equals("pdf")){
             try {
                 pdfModel.printPDF(recipe, path);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("save as pdf");
+                alert.setContentText("Success to save as PDF");
+                alert.showAndWait();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -314,6 +322,7 @@ public class DetailedRecipeView {
             alert.setContentText("Fail to save as PDF");
             alert.showAndWait();
         }
+        return path;
 
 
     }
@@ -321,7 +330,7 @@ public class DetailedRecipeView {
     /**
      * the update of the window when save as TXT
      */
-    public void updateTXT(){
+    public String updateTXT(){
         chooser = new FileChooser();
         txtModel = new OutputTXTModel();
         File file = chooser.showOpenDialog(stage);
@@ -330,17 +339,22 @@ public class DetailedRecipeView {
         if(type.equals("txt")){
             try {
                 txtModel.printTXT(recipe, path);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("save as txt");
+                alert.setContentText("Success to save as TXT");
+                alert.showAndWait();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("save as pdf");
+            alert.setTitle("save as txt");
             alert.setContentText("Fail to save as TXT");
             alert.showAndWait();
 
         }
+        return path;
     }
 
 
@@ -393,10 +407,20 @@ public class DetailedRecipeView {
     public void updateStar(int i) {
         if (i == 0) {
             starRecipeBtn.setGraphic(new ImageView(this.getClass().getClassLoader().getResource("./icons/unstar.png").toExternalForm()));
+            starModel.unstarRecipe(this.recipe);
             starRecipeBtn.setUserData("unstar");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Unstar");
+            alert.setContentText("You have unstared the recipe");
+            alert.showAndWait();
         } else {
             starRecipeBtn.setGraphic(new ImageView(this.getClass().getClassLoader().getResource("./icons/star.png").toExternalForm()));
+            starModel.starRecipe(this.recipe);
             starRecipeBtn.setUserData("star");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("star");
+            alert.setContentText("You have stared the recipe");
+            alert.showAndWait();
         }
     }
 }

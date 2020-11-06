@@ -1,5 +1,6 @@
 package view;
 
+import controller.ForwardCreateController;
 import controller.DetailedInformationController;
 import entity.Recipe;
 import javafx.geometry.Insets;
@@ -37,6 +38,7 @@ public class MainView {
     private Button searchRecipeBtn;
 
     private DetailedInformationController detailedController = new DetailedInformationController(this);
+    private ForwardCreateController forwardCreateController = new ForwardCreateController(this);
 
     public MainView(List<Recipe> recipes, String userId) {
         this.recipes = recipes;
@@ -69,6 +71,7 @@ public class MainView {
         header.setMargin(createRecipeBtn, new Insets(0, 30, 0, 0));
         header.setMargin(searchRecipeBtn, new Insets(0, 0, 0, 10));
         header.setMargin(lSearchRecipe, new Insets(0, 5, 0, 0));
+        createRecipeBtn.setOnAction(forwardCreateController);
 
         content = new TilePane();
         initializeRecipes();
@@ -126,5 +129,9 @@ public class MainView {
             Label label = new Label("No recipes have been stared already.");
             content.getChildren().add(label);
         }
+    }
+
+    public void createRecipe() {
+        CreateRecipeView createRecipeView = new CreateRecipeView();
     }
 }
