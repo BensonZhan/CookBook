@@ -21,12 +21,15 @@ public class SaveRecipeDaoImpl implements SaveRecipeDao {
         int result3 = 0;
         String sql = "UPDATE " + userId + " set recipe_name=?, prep_time=?, serve=?, cook_time=?, picPath=?, Instructions=? where id=?;" ;
         result1 = DBUtils.executeUpdate(sql, recipeName, prepTime, serve, cookTime, picpath, instructions, recipeId);
+
         String sql2 = "DELETE FROM " + userId + "_ing WHERE recipe_name=?" ;
         result3 = DBUtils.executeUpdate(sql2, recipeName);
+
         for(Ingredient in: ingredients) {
             String sql1 = "INSERT INTO " + userId + "_ing (id, name, amount, action, recipe_name) VALUES (default, ?, ?, ?, ?)";
             result2 = DBUtils.executeUpdate(sql1, in.getIngredientName(), in.getAmount(), in.getPrepAction(), recipeName);
         }
+
         if(result1 == 1 && result2 >= 1 && result3 >=1){
             return 1;
         }

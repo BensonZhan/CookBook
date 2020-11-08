@@ -45,7 +45,6 @@ public class DetailedRecipeView {
     private Button starRecipeBtn;
     private Button outputPDFBtn;
     private Button outputTXTBtn;
-    private Button unstarBtn;
     private Label lRecipeName;
     private TextField tRecipeName;
     private Label lPrepTime;
@@ -56,7 +55,6 @@ public class DetailedRecipeView {
     private TextField tCookTime;
     private Label lIngredients;
     private List<TextField> tIngredients; //every textfield for one kind of ingredient
-    private Button add;
     private Label lInstructions;
     private TextArea tInstructions;
 
@@ -85,9 +83,7 @@ public class DetailedRecipeView {
         outputPDFBtn.setOnAction(new OutputPDFController(this));
         outputTXTBtn = new Button("print txt");
         outputTXTBtn.setOnAction(new OutputTXTController(this));
-        unstarBtn = new Button("unstar");
         ImageView star = new ImageView("icons/star.png");
-        unstarBtn.setGraphic(star);
         lRecipeName = new Label("Recipe name : ");
         tRecipeName = new TextField();
         lPrepTime = new Label();
@@ -137,10 +133,15 @@ public class DetailedRecipeView {
         /**
          * ingredients
          */
-        for(int i = 0; i < 7; i++){
+        for (int i = 0; i < ingredients.size(); i++) {
             tIngredients.add(new TextField(ingredients.get(i).getAmount()));
             tIngredients.add(new TextField(ingredients.get(i).getIngredientName()));
             tIngredients.add(new TextField(ingredients.get(i).getPrepAction()));
+        }
+        for (int i = ingredients.size(); i < 7; i++) {
+            tIngredients.add(new TextField());
+            tIngredients.add(new TextField());
+            tIngredients.add(new TextField());
         }
 
 
@@ -219,7 +220,6 @@ public class DetailedRecipeView {
                 ingredient.get(j).setIngredientName(tIngredients.get(i).getText());
                 ingredient.get(j).setAmount(tIngredients.get(i + 1).getText());
                 ingredient.get(j).setPrepAction(tIngredients.get(i + 2).getText());
-//                ingredient.get(j).setRecipeId(this.recipe.getId());
                 j++;
         }
 
@@ -255,14 +255,6 @@ public class DetailedRecipeView {
     public String getUserId(){ return userId;}
 
     /**
-     * update when add the number of ingredients
-     */
-    public void addUpdate(){
-        TextField tx = new TextField();
-        tIngredients.add(tx);
-    }
-
-    /**
      * the pop up window of pressing the save button
      */
     public void saveUpdate(){
@@ -283,48 +275,34 @@ public class DetailedRecipeView {
     }
 
     /**
-     * the pop up window of unstar the recipe
-     */
-    public void unstarUpdate(){
-        /**
-         * 还没处理
-         */
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-                                alert.setTitle("unstar");
-                                alert.setContentText("Your recipe has been unstared");
-                                alert.showAndWait();
-    }
-
-    /**
      * the update of the window when save as PDF
      */
     public String updatePDF(){
-
         chooser = new FileChooser();
-        pdfModel = new OutputPDFModel();
+        pdfModel = OutputPDFModel.getModel();
         File file = chooser.showOpenDialog(stage);
-        String path = file.getAbsolutePath();
-        String type = path.substring(path.length() - 3, path.length());
-        if(type.equals("pdf")){
-            try {
-                pdfModel.printPDF(recipe, path);
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        if (file != null) {
+            String path = file.getAbsolutePath();
+            String type = path.substring(path.length() - 3, path.length());
+            if (type.equals("pdf")) {
+                try {
+                    pdfModel.printPDF(recipe, path);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("save as pdf");
+                    alert.setContentText("Success to save as PDF");
+                    alert.showAndWait();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("save as pdf");
-                alert.setContentText("Success to save as PDF");
+                alert.setContentText("Fail to save as PDF");
                 alert.showAndWait();
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+            return path;
         }
-        else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("save as pdf");
-            alert.setContentText("Fail to save as PDF");
-            alert.showAndWait();
-        }
-        return path;
-
-
+        return null;
     }
 
     /**
@@ -332,29 +310,31 @@ public class DetailedRecipeView {
      */
     public String updateTXT(){
         chooser = new FileChooser();
-        txtModel = new OutputTXTModel();
+        txtModel = OutputTXTModel.getModel();
         File file = chooser.showOpenDialog(stage);
-        String path = file.getAbsolutePath();
-        String type = path.substring(path.length() - 3, path.length());
-        if(type.equals("txt")){
-            try {
-                txtModel.printTXT(recipe, path);
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        if (file != null) {
+            String path = file.getAbsolutePath();
+            String type = path.substring(path.length() - 3, path.length());
+            if (type.equals("txt")) {
+                try {
+                    txtModel.printTXT(recipe, path);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("save as txt");
+                    alert.setContentText("Success to save as TXT");
+                    alert.showAndWait();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("save as txt");
-                alert.setContentText("Success to save as TXT");
+                alert.setContentText("Fail to save as TXT");
                 alert.showAndWait();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("save as txt");
-            alert.setContentText("Fail to save as TXT");
-            alert.showAndWait();
 
+            }
+            return path;
         }
-        return path;
+        return null;
     }
 
 

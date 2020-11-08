@@ -10,11 +10,13 @@ import view.DetailedRecipeView;
  * @author Haoran Yang
  */
 public class OutputTXTController implements EventHandler<ActionEvent> {
-    DetailedRecipeView view;
-    OutputTXTModel model = new OutputTXTModel();
+    private DetailedRecipeView view;
+    private OutputTXTModel model = OutputTXTModel.getModel();
+
     public OutputTXTController(DetailedRecipeView view){
         this.view = view;
     }
+
     @Override
     public void handle(ActionEvent actionEvent) {
         try {

@@ -17,36 +17,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_11_2_17_25_[Default_Changelist]/DetailedInformationController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_11_2_17_25_[Default_Changelist]/DetailedRecipeView.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_11_2_17_25_[Default_Changelist]/LoginView.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_11_2_17_25_[Default_Changelist]/SaveRecipeDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_11_2_17_25_[Default_Changelist]/SaveRecipeDaoImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_11_2_17_25_[Default_Changelist]/SaveRecipeModel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_11_2_17_25_[Default_Changelist]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_11_2_17_25_[Default_Changelist]/validateCode.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_11_2_17_25__Default_Changelist_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/ForwardCreateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/CreateRecipeModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/CreateRecipeView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/AddPictureController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/CreateRecipeDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/impl/CreateRecipeDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CookBook/META-INF/CookBook.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/META-INF/CookBook.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CookBook/controller/CreateRecipeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/controller/CreateRecipeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/controller/AddIngredientsController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CookBook/controller/OutputPDFController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/controller/OutputPDFController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CookBook/controller/OutputTXTController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/controller/OutputTXTController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CookBook/dao/impl/SaveRecipeDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/dao/impl/SaveRecipeDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/model/CreateRecipeModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/model/CreateRecipeModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CookBook/model/OutputPDFModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/model/OutputPDFModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CookBook/model/OutputTXTModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/model/OutputTXTModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CookBook/view/CreateRecipeView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/view/CreateRecipeView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CookBook/view/DetailedRecipeView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/view/DetailedRecipeView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CookBook/view/MainView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/view/MainView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/CreateRecipeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CreateRecipeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/CookBook/model/OutputPDFModelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/CookBook/model/OutputPDFModelTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/CookBook/model/OutputTXTModelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/CookBook/model/OutputTXTModelTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AddIngredientsController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/OutputPDFController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/OutputPDFController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/OutputTXTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/OutputTXTController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/SaveRecipeDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/SaveRecipeDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CreateRecipeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/CreateRecipeModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/OutputPDFModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/OutputPDFModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/OutputTXTModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/OutputTXTModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SaveRecipeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SaveRecipeModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/CreateRecipeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/CreateRecipeView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/DetailedRecipeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/DetailedRecipeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/model/OutputPDFModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/model/OutputPDFModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/model/OutputTXTModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/model/OutputTXTModelTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/validateCode.png" beforeDir="false" afterPath="$PROJECT_DIR$/validateCode.png" afterDir="false" />
     </list>
     <ignored path="F:\projects\CookBook\.idea\shelf/" />
@@ -106,26 +102,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/view/DetailedRecipeView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4769">
-              <caret line="283" column="32" selection-start-line="280" selection-start-column="12" selection-end-line="283" selection-end-column="32" />
+            <state relative-caret-position="114">
+              <caret line="137" column="30" selection-start-line="137" selection-start-column="30" selection-end-line="137" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/entity/Recipe.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/CreateRecipeModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+            <state relative-caret-position="-676">
+              <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/view/MainView.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/DetailedInformationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="78" selection-start-line="78" selection-end-line="78" />
+            <state relative-caret-position="-84">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -133,75 +132,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/view/CreateRecipeView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2774">
-              <caret line="161" column="9" selection-start-line="161" selection-start-column="9" selection-end-line="161" selection-end-column="9" />
+            <state relative-caret-position="193">
+              <caret line="163" selection-start-line="163" selection-end-line="163" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/CreateRecipeModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
-              <folding>
-                <element signature="e#484#485#0" expanded="true" />
-                <element signature="e#527#528#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/LoginModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="40" column="21" selection-start-line="32" selection-start-column="8" selection-end-line="40" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/CreateRecipeController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/ForwardCreateController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/ChangeValCodeController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="11" column="59" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/AddIngredientsController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -211,8 +146,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -233,10 +168,21 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/view/DetailedRecipeView.java" />
         <option value="$PROJECT_DIR$/src/main/java/view/MainView.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/ForwardCreateController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/CreateRecipeController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/OutputTXTModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/OutputPDFModel.java" />
+        <option value="$PROJECT_DIR$/test/model/OutputPDFModelTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/OutputPDFController.java" />
+        <option value="$PROJECT_DIR$/test/model/OutputTXTModelTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/OutputTXTController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/AddPictureController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/CreateRecipeModelDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/impl/SaveRecipeDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/SaveRecipeModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/impl/CreateRecipeDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/view/DetailedRecipeView.java" />
         <option value="$PROJECT_DIR$/src/main/java/view/CreateRecipeView.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/CreateRecipeModel.java" />
       </list>
@@ -244,10 +190,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
-    <option name="y" value="515" />
-    <option name="width" value="980" />
-    <option name="height" value="525" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1615" />
+    <option name="height" value="880" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -266,6 +212,11 @@
             <path>
               <item name="CookBook" type="b2602c69:ProjectViewProjectNode" />
               <item name="CookBook" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CookBook" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CookBook" type="462c0819:PsiDirectoryNode" />
+              <item name="recipe_pic" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CookBook" type="b2602c69:ProjectViewProjectNode" />
@@ -292,6 +243,23 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CookBook" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CookBook" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CookBook" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CookBook" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CookBook" type="b2602c69:ProjectViewProjectNode" />
@@ -588,7 +556,7 @@
       <workItem from="1604326213249" duration="5825000" />
       <workItem from="1604670902927" duration="4227000" />
       <workItem from="1604686481645" duration="14000" />
-      <workItem from="1604686553774" duration="244000" />
+      <workItem from="1604686553774" duration="10395000" />
     </task>
     <servers />
   </component>
@@ -625,13 +593,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4485000" />
+    <option name="totallyTimeSpent" value="14636000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25637585" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25637585" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -646,11 +613,11 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.329429" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.329429" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.329429" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -728,45 +695,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/DetailedRecipeView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4769">
-          <caret line="283" column="32" selection-start-line="280" selection-start-column="12" selection-end-line="283" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/view/MainView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1140">
           <caret line="78" selection-start-line="78" selection-end-line="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/CreateRecipeView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2774">
-          <caret line="161" column="9" selection-start-line="161" selection-start-column="9" selection-end-line="161" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/CreateRecipeModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-          <folding>
-            <element signature="e#484#485#0" expanded="true" />
-            <element signature="e#527#528#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/LoginModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="40" column="21" selection-start-line="32" selection-start-column="8" selection-end-line="40" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -780,9 +712,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/entity/Recipe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/ForwardCreateController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
+        <state relative-caret-position="247">
           <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -790,24 +729,173 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/ChangeValCodeController.java">
+    <entry file="file://$PROJECT_DIR$/test/model/OutputPDFModelTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="11" column="59" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="59" />
+        <state relative-caret-position="469">
+          <caret line="44" column="56" selection-start-line="44" selection-start-column="56" selection-end-line="44" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/model/OutputTXTModelTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="40" column="56" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/OutputTXTModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-163">
+          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/OutputPDFModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/OutputTXTController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="13" column="60" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/AddIngredientsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
+        <state relative-caret-position="323">
+          <caret line="24" column="16" lean-forward="true" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+          <folding>
+            <element signature="e#558#559#0" expanded="true" />
+            <element signature="e#590#591#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/SaveRecipeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/Recipe.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/utils/DBUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+        <state relative-caret-position="144">
+          <caret line="133" column="54" lean-forward="true" selection-start-line="133" selection-start-column="54" selection-end-line="133" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/impl/SaveRecipeDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/SaveRecipeModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/CreateRecipeDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/OutputPDFController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="19" column="13" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/AddPictureController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#288#289#0" expanded="true" />
+            <element signature="e#319#320#0" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
+            <element signature="e#404#405#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/LoginView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="104" column="44" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/LoginModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-706">
+          <caret line="50" column="49" selection-start-line="50" selection-start-column="49" selection-end-line="50" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/ChangeValCodeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/impl/CreateRecipeDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/DetailedRecipeView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="137" column="30" selection-start-line="137" selection-start-column="30" selection-end-line="137" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/DetailedInformationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-84">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/CreateRecipeView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="163" selection-start-line="163" selection-end-line="163" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/CreateRecipeModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-676">
+          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

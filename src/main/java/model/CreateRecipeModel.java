@@ -1,10 +1,19 @@
 package model;
 
+import dao.CreateRecipeDao;
+import dao.impl.CreateRecipeDaoImpl;
+import entity.Ingredient;
 import entity.Recipe;
+
+import java.io.*;
+import java.sql.SQLException;
+import java.util.Iterator;
 
 public class CreateRecipeModel {
 
     private static CreateRecipeModel model;
+    private CreateRecipeDao createRecipeDao = new CreateRecipeDaoImpl();
+
 
     private CreateRecipeModel() {}
 
@@ -20,10 +29,40 @@ public class CreateRecipeModel {
         return model;
     }
 
-    public void createRecipe(Recipe recipe) {
+    /**
+     *
+     * @param recipe Recipe has to be created.
+     * @return -1 means name has problems, -2 means ingredients have problems, -3 means instructions have problems, -4 means wrong picPath, -5 means insert failure
+     */
+    public int createRecipe(Recipe recipe) {
         int i = checkRecipe(recipe);
+        if (i < 0) {
+            return i;
+        }
+        String path = null;
+        try {
+            path = movePic(recipe.getPicPath());
+            recipe.setPicPath(path);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return -4;
+        }
+
+        try {
+            createRecipeDao.createRecipe(recipe);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -5;
+        }
+        return 0;
+
     }
 
+    /**
+     * Check the inputs of recipes.
+     * @param recipe recipe has to be created
+     * @return -1 means name has problems, -2 means ingredients have problems, -3 means instructions have problems, 0 is ok
+     */
     private int checkRecipe(Recipe recipe) {
         String name = recipe.getRecipeName();
         if (name == null || "".equals(name.trim())) {
@@ -31,6 +70,73 @@ public class CreateRecipeModel {
         }
         // no check for prepTime, serve, cookTime
 
+        // for ingredients, name must be existed
+        for (Iterator<Ingredient> iterator = recipe.getIngredients().iterator(); iterator.hasNext(); ) {
+            Ingredient ingre = iterator.next();
+            if (ingre.getIngredientName() == null || "".equals(ingre.getIngredientName().trim())) {
+                iterator.remove();
+            }
+        }
 
+        if (recipe.getIngredients().size() == 0) {
+            return -2;
+        }
+        if (recipe.getInstructions() == null || recipe.getInstructions().size() == 0) {
+            return -3;
+        }
+        return 0;
+    }
+
+    public String getPicPath(File file) {
+        String path = file.getAbsolutePath();
+        if (path == null || !(path.endsWith(".png") || path.endsWith(".jpg") || path.endsWith(".jpeg")) ) {
+            return null;
+        }
+        return path;
+
+    }
+
+    public String movePic(String picPath) throws IOException {
+        FileInputStream fis = null;
+        FileOutputStream fos = null;
+
+        fis = new FileInputStream(new File(picPath));
+        String fileName = "./recipe_pic/" + picPath.substring(picPath.lastIndexOf("\\") + 1);
+        File newFile = new File(fileName);
+
+        int i = 0;
+        String name = fileName;
+        String[] nameAndType = name.split("\\.");
+        System.out.println();
+        while (newFile.exists()) {
+            i++;
+            fileName = "." + nameAndType[1] + i + "." + nameAndType[2];
+            newFile = new File(fileName);
+        }
+        System.out.println(newFile.getAbsolutePath());
+        if (!newFile.exists()) {
+            newFile.createNewFile();
+        }
+        fos = new FileOutputStream(newFile);
+        byte[] buf = new byte[1024];
+        int len = 0;
+        while ((len = fis.read(buf)) != -1) {
+            fos.write(buf, 0, len);
+        }
+        if (fis != null) {
+            try {
+                fis.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (fos != null) {
+            try {
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return fileName;
     }
 }

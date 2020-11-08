@@ -17,8 +17,27 @@ import java.util.List;
  */
 public class OutputTXTModel {
 
+    private static OutputTXTModel model;
+
+    private OutputTXTModel() {}
+
+    public static OutputTXTModel getModel() {
+        if (model == null) {
+            synchronized (LoginModel.class) {
+                if (model == null) {
+                    model = new OutputTXTModel();
+                }
+            }
+        }
+
+        return model;
+    }
+
 
     public void printTXT(Recipe recipe, String filePath) {
+        if (filePath == null) {
+            return;
+        }
         PrintWriter pw = null;
         try {
             pw = new PrintWriter(new FileWriter(new File(filePath)), true);

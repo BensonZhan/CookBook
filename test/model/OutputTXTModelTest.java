@@ -38,7 +38,7 @@ public class OutputTXTModelTest {
         instructions.add("Heat up wok on medium fire; brush some oil on the bottom. Sautee the pork belly until the surface becomes slightly brown. Transfer the pork cubes out to a pre-heat clay pot with green onion and ginger slices laid in bottle or a plate and leave the oil in.");
         recipe.setInstructions(instructions);
 
-        OutputTXTModel model = new OutputTXTModel();
+        OutputTXTModel model = OutputTXTModel.getModel();
         model.printTXT(recipe, "./test.txt");
     }
 }

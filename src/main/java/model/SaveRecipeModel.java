@@ -35,8 +35,8 @@ public class SaveRecipeModel {
 
         try {
             return dao.saveRecipe(userId, recipeName, Integer.parseInt(prepTime),Integer.parseInt(serve),Integer.parseInt(cookTime), in,ingredients, picpath, recipeId);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
             return -1;
         }
     }

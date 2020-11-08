@@ -42,7 +42,7 @@ public class OutputPDFModelTest {
         // The generated file will be created under the program.
         String path = "./test.pdf";
 
-        OutputPDFModel model = new OutputPDFModel();
+        OutputPDFModel model = OutputPDFModel.getModel();
         try {
             model.printPDF(recipe, path);
         } catch (Exception e) {

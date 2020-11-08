@@ -11,7 +11,7 @@ import view.DetailedRecipeView;
  */
 public class OutputPDFController implements EventHandler<ActionEvent> {
     DetailedRecipeView view;
-    OutputPDFModel model = new OutputPDFModel();
+    OutputPDFModel model = OutputPDFModel.getModel();
     public OutputPDFController(DetailedRecipeView view){
         this.view = view;
     }

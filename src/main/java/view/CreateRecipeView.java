@@ -1,5 +1,6 @@
 package view;
 
+import controller.AddPictureController;
 import controller.CreateRecipeController;
 import entity.Ingredient;
 import entity.Recipe;
@@ -10,9 +11,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.CreateRecipeModel;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -32,12 +35,18 @@ public class CreateRecipeView {
     private Label lInstructions;
     private TextArea tInstructions;
     private Button saveRecipeBtn;
+    private Button addPictureBtn;
+    private FileChooser chooser;
+
+    private String picPath;
+
     private BorderPane root = new BorderPane();
     private HBox upperPane = new HBox();
     private GridPane centerPane = new GridPane();
     private FlowPane bottomPane = new FlowPane();
     private CreateRecipeController createRecipeController = new CreateRecipeController(this);
-    private CreateRecipeModel model = CreateRecipeModel.getModel();
+    private AddPictureController addPictureController = new AddPictureController(this);
+    private CreateRecipeModel createRecipeModel = CreateRecipeModel.getModel();
 
 
     public CreateRecipeView() {
@@ -59,6 +68,8 @@ public class CreateRecipeView {
         lInstructions.setText("Instruction : ");
         tInstructions = new TextArea();
         tInstructions.setPrefRowCount(7);
+        addPictureBtn = new Button("Add a picture");
+        chooser = new FileChooser();
 
         for (int i = 0; i < 21; i++) {
             tIngredients.add(new TextField());
@@ -94,8 +105,9 @@ public class CreateRecipeView {
         informationPane.setHgap(10);
         informationPane.setVgap(5);
 
-        upperPane.getChildren().addAll(informationPane, saveRecipeBtn);
+        upperPane.getChildren().addAll(informationPane, addPictureBtn, saveRecipeBtn);
         saveRecipeBtn.setOnAction(createRecipeController);
+        addPictureBtn.setOnAction(addPictureController);
 
 
         upperPane.setSpacing(20);
@@ -130,6 +142,8 @@ public class CreateRecipeView {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("create recipe");
 
+        int i;
+
         try {
             String recipeName = tRecipeName.getText();
             recipe.setRecipeName(recipeName);
@@ -140,11 +154,11 @@ public class CreateRecipeView {
             String cookTime = tCookTime.getText();
             recipe.setCookTime(Integer.parseInt(cookTime));
             List<Ingredient> ingredients = new ArrayList<>();
-            for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
                 Ingredient ingre = new Ingredient();
-                ingre.setAmount(tIngredients.get(i * 0).getText());
-                ingre.setRecipeName(tIngredients.get(i * 1).getText());
-                ingre.setPrepAction(tIngredients.get(i * 2).getText());
+                ingre.setAmount(tIngredients.get(j * 3 + 0).getText());
+                ingre.setIngredientName(tIngredients.get(j * 3 + 1).getText());
+                ingre.setPrepAction(tIngredients.get(j * 3 + 2).getText());
                 ingredients.add(ingre);
             }
             recipe.setIngredients(ingredients);
@@ -155,10 +169,39 @@ public class CreateRecipeView {
                 instructions.add(scanner.nextLine());
             }
             recipe.setInstructions(instructions);
-            model.createRecipe(recipe);
+            recipe.setPicPath(picPath);
+            i = createRecipeModel.createRecipe(recipe);
         } catch (Exception e) {
+            e.printStackTrace();
             alert.setContentText("The inputs have some problems. Please recheck~");
             alert.showAndWait();
+            i = 1;
         }
+        if (i == -1) {
+            alert.setContentText("You have entered wrong recipe name~");
+        } else if (i == -2) {
+            alert.setContentText("You have entered wrong ingredients~");
+        } else if (i == -3) {
+            alert.setContentText("You have entered wrong instructions~");
+        } else if (i == -4) {
+            alert.setContentText("You have chosen wrong picture~");
+        } else if (i == -5) {
+            alert.setContentText("The software is upgrading. Please create a recipe later~");
+        } else if (i == 0) {
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+            alert1.setContentText("Create a recipe successfully~");
+            alert1.showAndWait();
+            return;
+        }
+        alert.showAndWait();
+    }
+
+    public void showPicChooser() {
+        chooser.setTitle("Choose a picture");
+        File file = chooser.showOpenDialog(new Stage());
+        if (file == null) {
+            return;
+        }
+        picPath = createRecipeModel.getPicPath(file);
     }
 }

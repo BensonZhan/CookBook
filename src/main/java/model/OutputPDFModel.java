@@ -15,6 +15,22 @@ import java.util.ArrayList;
  */
 public class OutputPDFModel {
 
+    private static OutputPDFModel model;
+
+    private OutputPDFModel() {}
+
+    public static OutputPDFModel getModel() {
+        if (model == null) {
+            synchronized (LoginModel.class) {
+                if (model == null) {
+                    model = new OutputPDFModel();
+                }
+            }
+        }
+
+        return model;
+    }
+
     /**
      * Generate a pdf file with detailed information about a recipe.
      * @param recipe A recipe which should be presented in the pdf.
@@ -22,6 +38,9 @@ public class OutputPDFModel {
      * @throws Exception
      */
     public void printPDF(Recipe recipe, String filePath) throws Exception {
+        if (filePath == null) {
+            return;
+        }
         String recipeName = recipe.getRecipeName();
         String prepTime = recipe.getPrepTime() + "min";
         String serve = recipe.getServe() + "";
