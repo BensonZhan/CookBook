@@ -14,25 +14,31 @@ import java.util.List;
  * The model is used to search the recipe.
  * @author Kefan Yang
  */
-
 public class SearchRecipeModel {
-    private static SearchRecipeModel searchModel;
+    private static SearchRecipeModel model;
     private SearchRecipeDao searchRecipeDao = new SearchRecipeDaoImpl();
-    private MainView mainView = new MainView();
-    private SearchRecipeView searchRecipeView = new SearchRecipeView();
 
-    public List<Recipe> searchRecipe(String name) throws SQLException {
-        List<Recipe> recipes = searchRecipeDao.searchRecipe(name);
-        try {
-            for (Recipe r : mainView.getRecipes()) {
-                if (name == r.getRecipeName()) {
-                    return recipes;
-                } else {
-                    return null;
+    public SearchRecipeModel() {}
+
+    public static SearchRecipeModel getModel() {
+        if (model == null) {
+            synchronized (LoginModel.class) {
+                if (model == null) {
+                    model = new SearchRecipeModel();
                 }
             }
+        }
+        return model;
+    }
+
+    public List<Recipe> searchRecipe(String name)  {
+        if (name == null || "".equals(name.trim())) {
             return null;
-        } catch (Exception e) {
+        }
+        List<Recipe> recipes = null;
+        try {
+            recipes = searchRecipeDao.searchRecipe(name);
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return recipes;

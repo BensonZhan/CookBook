@@ -75,4 +75,5 @@ public class Ingredient {
     public String toString() {
         return amount + " " + ingredientName + " " + prepAction;
     }
+
 }

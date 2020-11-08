@@ -1,28 +1,37 @@
 package controller;
 
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import model.SearchRecipeModel;
 import view.MainView;
 import view.SearchRecipeView;
+import view.ShowRecipeView;
 
-import java.awt.event.ActionEvent;
 import java.sql.SQLException;
+import java.util.EventListener;
 
 /**
  * The controller which is used to respond to search recipe event.
  * @author Kefan Yang
  */
-public class SearchRecipeController {
-    private SearchRecipeView searchRecipeView;
+public class SearchRecipeController implements EventHandler<ActionEvent> {
     private SearchRecipeModel searchRecipeModel;
 //    private DetailedRecipeModel detailedRecipeModel;
-    private MainView mainView = new MainView();
+    private MainView mainView;
 
-    public void actionPerformed(ActionEvent e) throws SQLException {
-        String name = mainView.getTSearchRecipe();
-        if (e.getSource() == mainView.getSearchRecipeBtn()) {
-            mainView.searchRecipe();
-            searchRecipeModel.searchRecipe(name);
-        }
-        if(e.getSource() == searchRecipeView.)
+    /**
+     *  @param model
+     * @param view
+     */
+    public SearchRecipeController(SearchRecipeModel model, MainView view) {
+        this.searchRecipeModel = model;
+        this.mainView = view;
+    }
+
+    @Override
+    public void handle(ActionEvent event) {
+        mainView.searchRecipe();
+        mainView.update();
     }
 }

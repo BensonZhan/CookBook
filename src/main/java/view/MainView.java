@@ -1,9 +1,12 @@
 package view;
 
 import controller.DetailedInformationController;
+import controller.SearchRecipeController;
+import dao.SearchRecipeDao;
 import entity.Recipe;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -12,10 +15,14 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.SearchRecipeModel;
 //import model.SearchRecipeModel;
 
 //import java.sql.SQLException;
+import javax.swing.*;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +46,9 @@ public class MainView {
     private Button searchRecipeBtn;
 
     private DetailedInformationController detailedController = new DetailedInformationController(this);
-    private SearchRecipeModel searchRecipeModel = new SearchRecipeModel();
+    private SearchRecipeModel searchRecipeModel = SearchRecipeModel.getModel();
+    private SearchRecipeController searchRecipeController = new SearchRecipeController(searchRecipeModel,this);
+
 
     public MainView(List<Recipe> recipes, String userId) {
         this.recipes = recipes;
@@ -50,6 +59,10 @@ public class MainView {
 
     public MainView() {
         initialNodes();
+    }
+
+    public TextField gettSearchRecipe() {
+        return tSearchRecipe;
     }
 
     private void initialNodes() {
@@ -90,7 +103,6 @@ public class MainView {
 
     public void start() {
         initializeRecipes();
-
         stage.show();
     }
 
@@ -122,6 +134,7 @@ public class MainView {
 
                 // add eventlistener
                 group.setOnAction(detailedController);
+                searchRecipeBtn.setOnAction(searchRecipeController);
 
                 content.getChildren().add(group);
             }
@@ -135,22 +148,24 @@ public class MainView {
         return detailedController;
     }
 
-    public List<Recipe> searchRecipe() throws SQLException {
+    public void searchRecipe() {
         String name = tSearchRecipe.getText();
-        List<Recipe> recipes= searchRecipeModel.searchRecipe(name);
-        return recipes;
-    }
-
-    public SearchRecipeView getSearchRecipeView() {
-        SearchRecipeView searchRecipeView = new SearchRecipeView();
-        searchRecipeView.getRecipeInfo();
-        return searchRecipeView;
+        recipes = searchRecipeModel.searchRecipe(name);
     }
 
     public List<Recipe> getRecipes(){return recipes;}
-    public Button getSearchRecipeBtn(){return searchRecipeBtn;}
-    public String getTSearchRecipe(){
-        tSearchRecipe.getText();
-        return null;
+
+
+    public void update() {
+        if (recipes == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Sorry");
+            alert.setContentText("No recipe found *^*");
+            alert.showAndWait();
+
+        } else {
+            SearchRecipeView searchRecipeView = new SearchRecipeView(recipes, this);
+            searchRecipeView.start();
+        }
     }
 }

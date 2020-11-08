@@ -266,39 +266,6 @@ public class DetailedRecipeView {
     }
 
     /**
-     * the pop up window of pressing the save button
-     */
-    public void saveUpdate(){
-        //call the model to handle
-        int result = saveModel.save(getUserId(), getRecipeName(), getPrepTime(), getServe(), getCookTime(), getInstructions(), getIngredients(), recipe.getPicPath(),recipe.getId());
-        if(result >= 1){
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                          alert.setTitle("save");
-                          alert.setContentText("Your recipe has been saved");
-                          alert.showAndWait();
-        }
-        else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("save");
-            alert.setContentText("Your recipe FAIL to be saved");
-            alert.showAndWait();
-        }
-    }
-
-    /**
-     * the pop up window of unstar the recipe
-     */
-    public void unstarUpdate(){
-        /**
-         * 还没处理
-         */
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-                                alert.setTitle("unstar");
-                                alert.setContentText("Your recipe has been unstared");
-                                alert.showAndWait();
-    }
-
-    /**
      * the update of the window when save as PDF
      */
     public String updatePDF(){
@@ -425,5 +392,8 @@ public class DetailedRecipeView {
             alert.setContentText("You have stared the recipe");
             alert.showAndWait();
         }
+    }
+
+    public void saveUpdate() {
     }
 }
