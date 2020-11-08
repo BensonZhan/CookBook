@@ -1,9 +1,6 @@
 package view;
 
-import controller.OutputPDFController;
-import controller.OutputTXTController;
-import controller.SaveRecipeController;
-import controller.StarRecipeController;
+import controller.*;
 import dao.impl.DetailedRecipeDaoImpl;
 import entity.Ingredient;
 import entity.Recipe;
@@ -46,6 +43,8 @@ public class DetailedRecipeView {
     private Button outputPDFBtn;
     private Button outputTXTBtn;
     private Button unstarBtn;
+    private Label lPic;
+    private Button picChangeBtn;
     private Label lRecipeName;
     private TextField tRecipeName;
     private Label lPrepTime;
@@ -64,6 +63,7 @@ public class DetailedRecipeView {
 //    private CreateRecipeController createRecipeController = new CreateRecipeController();
     private SaveRecipeController saveRecipeController = new SaveRecipeController(this);
     private StarRecipeController starRecipeController = new StarRecipeController(this);
+    private ChangePicController changePicController = new ChangePicController(this);
     private SaveRecipeModel saveModel = SaveRecipeModel.getInstance();
     private StarModel starModel = StarModel.getModel();
     private FileChooser chooser;
@@ -75,6 +75,9 @@ public class DetailedRecipeView {
         /**
          * initialize the view
          */
+        picChangeBtn = new Button("change the picture");
+        picChangeBtn.setOnAction(changePicController);
+        lPic = new Label();
         saveRecipeBtn = new Button("save");
         saveRecipeBtn.setOnAction(saveRecipeController);
         starRecipeBtn = new Button();
@@ -132,7 +135,9 @@ public class DetailedRecipeView {
         tPrepTime.setText(recipe.getPrepTime() + "");
         tServe.setText(recipe.getServe() + "");
         tCookTime.setText(recipe.getCookTime() + "");
-
+        File file = new File(recipe.getPicPath());
+        ImageView pic = new ImageView(file.toURI().toString());
+        lPic.setGraphic(pic);
 
         /**
          * ingredients
@@ -264,6 +269,24 @@ public class DetailedRecipeView {
          * 加到主界面还没写
          */
     }
+    public void picUpdate(){
+        String path = "";
+        chooser = new FileChooser();
+        chooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                new FileChooser.ExtensionFilter("PNG", "*.png")
+        );
+        File file = chooser.showOpenDialog(stage);
+        try{
+            path = file.getAbsolutePath();
+        }catch (Exception ex){
+            return;
+        }
+        this.recipe.setPicPath(path);
+        File picturePath = new File(path);
+        ImageView pic = new ImageView(picturePath.toURI().toString());
+        lPic.setGraphic(pic);
+    }
 
     /**
      * the update of the window when save as PDF
@@ -371,7 +394,9 @@ public class DetailedRecipeView {
     private void initialBottom () {
         bottomPane.getChildren().addAll(lInstructions, tInstructions);
         bottomPane.setAlignment(Pos.BOTTOM_CENTER);
+        bottomPane.getChildren().addAll(picChangeBtn, lPic);
         root.setBottom(bottomPane);
+
     }
 
     public void updateStar(int i) {

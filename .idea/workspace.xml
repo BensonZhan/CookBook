@@ -6,38 +6,23 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:1.0.0" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/impl/ShowRecipeDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/ShowRecipeModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/StarableView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_11_2_17_25__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_11_2_17_25__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="fixed several bugs in the detailed recipe view">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/ChangePicController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CookBook/model/OutputPDFModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/model/OutputPDFModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CookBook/model/OutputTXTModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/model/OutputTXTModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CookBook/view/DetailedRecipeView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/view/DetailedRecipeView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CookBook/view/MainView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CookBook/view/MainView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SearchRecipeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SearchRecipeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ShowRecipeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ShowRecipeDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/SearchRecipeDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/SearchRecipeDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Ingredient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Ingredient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/SearchRecipeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SearchRecipeModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/DetailedRecipeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/DetailedRecipeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/SearchRecipeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SearchRecipeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ShowRecipeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ShowRecipeView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/validateCode.png" beforeDir="false" afterPath="$PROJECT_DIR$/validateCode.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,10 +77,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>save</find>
+    </findStrings>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -106,7 +96,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectId" id="1jltU94hnwqNLQwFcJ0QnqbbsPE" />
+  <component name="ProjectId" id="1jknVApdcyoOLOuBhm8zoxl5iSR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
@@ -119,23 +109,17 @@
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="JavaMethodFindUsagesOptions.isImplementingMethods" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/icons" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15247019" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -143,19 +127,19 @@
     <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\projects\CookBook\src\main\java" />
-      <recent name="F:\projects\CookBook\src\main" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="utils" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\projects\CookBook\src\main\resources\icons" />
       <recent name="F:\projects\CookBook\lib" />
       <recent name="F:\projects\CookBook\recipe_pic" />
       <recent name="F:\projects\CookBook\sql_script" />
       <recent name="F:\projects\CookBook\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="utils" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\projects\CookBook\src\main\java" />
+      <recent name="F:\projects\CookBook\src\main" />
     </key>
   </component>
   <component name="RunManager" selected="Application.App">
@@ -201,22 +185,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SearchRecipeView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.SearchRecipeView" />
-      <module name="CookBook" />
+    <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
+    <configuration name="OutputPDFModelTest.testPrintPDF" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CookBook" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.OutputPDFModelTest" />
+      <option name="METHOD_NAME" value="testPrintPDF" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -315,7 +305,7 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.App" />
-      <item itemvalue="Application.SearchRecipeView" />
+      <item itemvalue="JUnit.OutputPDFModelTest.testPrintPDF" />
       <item itemvalue="JUnit.OutputTXTModelTest.testPrintTXT" />
       <item itemvalue="JUnit.StarModelTest.testStarRecipe" />
       <item itemvalue="JUnit.StarModelTest.testUnstarRecipe" />
@@ -323,14 +313,13 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
-        <item itemvalue="Application.SearchRecipeView" />
         <item itemvalue="JUnit.StarModelTest.testUnstarRecipe" />
         <item itemvalue="JUnit.StarModelTest.testStarRecipe" />
         <item itemvalue="JUnit.OutputTXTModelTest.testPrintTXT" />
+        <item itemvalue="JUnit.OutputPDFModelTest.testPrintPDF" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -369,24 +358,40 @@
       <workItem from="1604224131778" duration="698000" />
       <workItem from="1604244523215" duration="680000" />
       <workItem from="1604326213249" duration="5825000" />
-      <workItem from="1604390541092" duration="2014000" />
-      <workItem from="1604473035173" duration="10985000" />
-      <workItem from="1604497979178" duration="5746000" />
-      <workItem from="1604661866706" duration="13857000" />
-      <workItem from="1604786233894" duration="4111000" />
-      <workItem from="1604861139163" duration="3469000" />
+      <workItem from="1604357037721" duration="68000" />
+      <workItem from="1604689976252" duration="4101000" />
     </task>
+    <task id="LOCAL-00001" summary="fixed several bugs in the detailed recipe view">
+      <created>1604341345470</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604341345470</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="1.0.0" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -410,64 +415,42 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <MESSAGE value="fixed several bugs in the detailed recipe view" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed several bugs in the detailed recipe view" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="371" y="96" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1604481849353">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="371" y="96" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1604481849353" />
-    <state x="446" y="46" key="#com.intellij.ide.util.MemberChooser" timestamp="1604788647713">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="446" y="46" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1604788647713" />
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1604864305677">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1604864305677" />
-    <state width="2516" height="405" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1604341061771" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1604864305677">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1604864305677" />
-    <state width="2516" height="405" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1604341061771" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1604864305677">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1604864305677" />
-    <state width="2516" height="405" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1604341061771" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1604864305677">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1604864305677" />
-    <state width="2516" height="405" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1604341061771" />
-    <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1604698324703">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1604698324703" />
-    <state width="1237" height="204" key="GridCell.Tab.1.center" timestamp="1604698324702">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1604698324702" />
-    <state width="1237" height="204" key="GridCell.Tab.1.left" timestamp="1604698324702">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1604698324702" />
-    <state width="1237" height="204" key="GridCell.Tab.1.right" timestamp="1604698324702">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1604698324702" />
-    <state x="873" y="453" key="Vcs.Push.Dialog.v2" timestamp="1604341218163">
+    <state x="1086" y="426" key="#com.intellij.ide.util.MemberChooser" timestamp="1604691024251">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="873" y="453" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1604341218163" />
-    <state x="468" y="97" key="refactoring.ChangeSignatureDialog" timestamp="1604685932961">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="1086" y="426" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1440@0.0.2560.1440" timestamp="1604691024251" />
+    <state x="1011" y="467" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604692692647">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="468" y="97" key="refactoring.ChangeSignatureDialog/0.0.1280.680@0.0.1280.680" timestamp="1604685932961" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1604476615058">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="1011" y="467" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1604692692647" />
+    <state width="2502" height="406" key="GridCell.Tab.0.bottom" timestamp="1604694054655">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1604476615058" />
+    <state width="2502" height="406" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1604694054655" />
+    <state width="2502" height="406" key="GridCell.Tab.0.center" timestamp="1604694054654">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2502" height="406" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1604694054654" />
+    <state width="2502" height="406" key="GridCell.Tab.0.left" timestamp="1604694054654">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2502" height="406" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1604694054654" />
+    <state width="2502" height="406" key="GridCell.Tab.0.right" timestamp="1604694054655">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2502" height="406" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1604694054655" />
+    <state x="873" y="453" key="Vcs.Push.Dialog.v2" timestamp="1604341363850">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="873" y="453" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1604341363850" />
+    <state x="987" y="507" key="git4idea.merge.GitPullDialog" timestamp="1604341352856">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="987" y="507" key="git4idea.merge.GitPullDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1604341352856" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
