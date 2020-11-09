@@ -1,9 +1,6 @@
 package view;
 
-import controller.OutputPDFController;
-import controller.OutputTXTController;
-import controller.SaveRecipeController;
-import controller.StarRecipeController;
+import controller.*;
 import dao.impl.DetailedRecipeDaoImpl;
 import entity.Ingredient;
 import entity.Recipe;
@@ -29,7 +26,8 @@ import java.util.Scanner;
  *
  * @author Haoran Yang
  */
-public class DetailedRecipeView {
+@SuppressWarnings("all")
+public class DetailedRecipeView implements StarableView, PrintableView {
     private Recipe recipe;
     private List<Ingredient> ingredients;
     private DetailedRecipeDaoImpl detailedRecipeDao = new DetailedRecipeDaoImpl();
@@ -49,22 +47,26 @@ public class DetailedRecipeView {
     private TextField tRecipeName;
     private Label lPrepTime;
     private TextField tPrepTime;
+    private Label lPrepUnit;
     private Label lServe;
     private TextField tServe;
     private Label lCookTime;
     private TextField tCookTime;
+    private Label lCookUnit;
     private Label lIngredients;
     private List<TextField> tIngredients; //every textfield for one kind of ingredient
     private Label lInstructions;
     private TextArea tInstructions;
+    private FileChooser chooser = new FileChooser();
+    private Button changePicBtn;
+    private Label lPicName;
 
 
-//    private ForwardCreateController createRecipeController = new ForwardCreateController();
     private SaveRecipeController saveRecipeController = new SaveRecipeController(this);
     private StarRecipeController starRecipeController = new StarRecipeController(this);
     private SaveRecipeModel saveModel = SaveRecipeModel.getInstance();
+    private ChangePictureController changePictureController = new ChangePictureController(this);
     private StarModel starModel = StarModel.getModel();
-    private FileChooser chooser;
     private OutputPDFModel pdfModel;
     private OutputTXTModel txtModel;
 
@@ -102,13 +104,23 @@ public class DetailedRecipeView {
         lInstructions.setText("Instruction : ");
         tInstructions = new TextArea();
         tInstructions.setPrefRowCount(7);
+        changePicBtn = new Button("Change a picture");
+        lPicName = new Label();
+        chooser = new FileChooser();
+        lPrepUnit = new Label("Minutes");
+        lCookUnit = new Label("Minutes");
 
+        changePicBtn.setPrefSize(200, 60);
+        lPicName.setPrefSize(200, 40);
+        saveRecipeBtn.setPrefSize(120, 60);
+        outputPDFBtn.setPrefSize(150, 60);
+        outputTXTBtn.setPrefSize(150, 60);
 
         stage = new Stage();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        root.setPrefWidth(640);
-        root.setPrefHeight(480);
+        root.setPrefWidth(920);
+        root.setPrefHeight(520);
         root.setStyle("-fx-background-color:#C1FFC1");
     }
 
@@ -134,15 +146,28 @@ public class DetailedRecipeView {
          * ingredients
          */
         for (int i = 0; i < ingredients.size(); i++) {
-            tIngredients.add(new TextField(ingredients.get(i).getAmount()));
-            tIngredients.add(new TextField(ingredients.get(i).getIngredientName()));
-            tIngredients.add(new TextField(ingredients.get(i).getPrepAction()));
+            TextField textField = new TextField(ingredients.get(i).getAmount());
+            textField.setPrefWidth(130.0);
+            tIngredients.add(textField);
+            TextField textField1 = new TextField(ingredients.get(i).getIngredientName());
+            textField1.setPrefWidth(130.0);
+            tIngredients.add(textField1);
+            TextField textField2 = new TextField(ingredients.get(i).getPrepAction());
+            textField2.setPrefWidth(360.0);
+            tIngredients.add(textField2);
         }
         for (int i = ingredients.size(); i < 7; i++) {
-            tIngredients.add(new TextField());
-            tIngredients.add(new TextField());
-            tIngredients.add(new TextField());
+            TextField t1 = new TextField();
+            t1.setPrefWidth(130.0);
+            tIngredients.add(t1);
+            TextField t2 = new TextField();
+            t2.setPrefWidth(130.0);
+            tIngredients.add(t2);
+            TextField t3 = new TextField();
+            t3.setPrefWidth(360.0);
+            tIngredients.add(t3);
         }
+
 
 
         String[] instructions = recipe.getInstructions().get(0).split("\\$");
@@ -155,9 +180,9 @@ public class DetailedRecipeView {
 
         // initial layout
         initialUpper();
-//        initialRight();
         initialCenter();
         initialBottom();
+
 
         stage.setTitle(recipe.getRecipeName());
         stage.show();
@@ -240,13 +265,6 @@ public class DetailedRecipeView {
         return list;
     }
 
-    /**
-     * get the recipe shown
-     * @return the recipe
-     */
-    public Recipe getRecipe(){
-        return recipe;
-    }
 
     /**
      * get the userId
@@ -259,17 +277,32 @@ public class DetailedRecipeView {
      */
     public void saveUpdate(){
         //call the model to handle
-        int result = saveModel.save(getUserId(), getRecipeName(), getPrepTime(), getServe(), getCookTime(), getInstructions(), getIngredients(), recipe.getPicPath(),recipe.getId());
+        int result = saveModel.save(getUserId(), recipe.getRecipeName(), getRecipeName(), getPrepTime(), getServe(), getCookTime(), getInstructions(), getIngredients(), recipe.getPicPath(),recipe.getId());
         if(result >= 1){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                           alert.setTitle("save");
                           alert.setContentText("Your recipe has been saved");
                           alert.showAndWait();
         }
-        else {
+        else if (result == -1){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("save");
-            alert.setContentText("Your recipe FAIL to be saved");
+            alert.setContentText("Software is upgrading~");
+            alert.showAndWait();
+        } else if (result == -2) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("save");
+            alert.setContentText("The format of the name of the recipe is wrong!!!");
+            alert.showAndWait();
+        } else if (result == -3) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("save");
+            alert.setContentText("Style of inputs is wrong. Please check~");
+            alert.showAndWait();
+        } else if (result == -4) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("save");
+            alert.setContentText("The format of the picture is wrong!!!");
             alert.showAndWait();
         }
     }
@@ -277,8 +310,7 @@ public class DetailedRecipeView {
     /**
      * the update of the window when save as PDF
      */
-    public String updatePDF(){
-        chooser = new FileChooser();
+    public void updatePDF(){
         pdfModel = OutputPDFModel.getModel();
         File file = chooser.showOpenDialog(stage);
         if (file != null) {
@@ -300,16 +332,13 @@ public class DetailedRecipeView {
                 alert.setContentText("Fail to save as PDF");
                 alert.showAndWait();
             }
-            return path;
         }
-        return null;
     }
 
     /**
      * the update of the window when save as TXT
      */
-    public String updateTXT(){
-        chooser = new FileChooser();
+    public void updateTXT(){
         txtModel = OutputTXTModel.getModel();
         File file = chooser.showOpenDialog(stage);
         if (file != null) {
@@ -332,9 +361,7 @@ public class DetailedRecipeView {
                 alert.showAndWait();
 
             }
-            return path;
         }
-        return null;
     }
 
 
@@ -346,14 +373,22 @@ public class DetailedRecipeView {
         informationPane.add(tServe, 1, 1);
         informationPane.add(lCookTime, 0,2);
         informationPane.add(tCookTime, 1, 2);
+        informationPane.add(lCookUnit, 2, 2);
         informationPane.add(lPrepTime, 0, 3);
         informationPane.add(tPrepTime, 1, 3);
+        informationPane.add(lPrepUnit, 2, 3);
         informationPane.setMaxWidth(400);
         informationPane.setMinWidth(300);
         informationPane.setHgap(10);
         informationPane.setVgap(5);
 
-        upperPane.getChildren().addAll(informationPane, saveRecipeBtn, starRecipeBtn, outputPDFBtn, outputTXTBtn);
+        changePicBtn.setOnAction(changePictureController);
+        String picPath = recipe.getPicPath();
+        int index = picPath.lastIndexOf("/");
+        lPicName.setText(picPath.substring(index + 1));
+
+
+        upperPane.getChildren().addAll(informationPane, changePicBtn, lPicName, saveRecipeBtn, starRecipeBtn, outputPDFBtn, outputTXTBtn);
         saveRecipeBtn.setOnAction(saveRecipeController);
         starRecipeBtn.setOnAction(starRecipeController);
 
@@ -381,6 +416,7 @@ public class DetailedRecipeView {
     private void initialBottom () {
         bottomPane.getChildren().addAll(lInstructions, tInstructions);
         bottomPane.setAlignment(Pos.BOTTOM_CENTER);
+
         root.setBottom(bottomPane);
     }
 
@@ -394,13 +430,32 @@ public class DetailedRecipeView {
             alert.setContentText("You have unstared the recipe");
             alert.showAndWait();
         } else {
+            boolean b = starModel.starRecipe(this.recipe);
+            if (!b) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("star");
+                alert.setContentText("You have stared a recipe which has the some recipe name!!!");
+                alert.showAndWait();
+                return;
+            }
             starRecipeBtn.setGraphic(new ImageView(this.getClass().getClassLoader().getResource("./icons/star.png").toExternalForm()));
-            starModel.starRecipe(this.recipe);
             starRecipeBtn.setUserData("star");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("star");
             alert.setContentText("You have stared the recipe");
             alert.showAndWait();
         }
+    }
+
+    public void showPicChooser() {
+        chooser.setTitle("Choose a picture");
+        File file = chooser.showOpenDialog(new Stage());
+        if (file == null) {
+            return;
+        }
+        String picPath = saveModel.getPicPath(file);
+        int index = picPath.lastIndexOf("\\") + 1;
+        lPicName.setText(picPath.substring(index));
+        recipe.setPicPath(picPath);
     }
 }

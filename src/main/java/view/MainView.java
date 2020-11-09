@@ -2,19 +2,26 @@ package view;
 
 import controller.ForwardCreateController;
 import controller.DetailedInformationController;
+import controller.RefreshController;
+import controller.SearchRecipeController;
 import entity.Recipe;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import model.LoginModel;
+import model.SearchRecipeModel;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,15 +37,21 @@ public class MainView {
     private Stage stage;
     private BorderPane root;
     private HBox header;
-    private TilePane content;
+    private FlowPane content;
     private List<Button> groups;
     private Button createRecipeBtn;
     private Label lSearchRecipe;
     private TextField tSearchRecipe;
     private Button searchRecipeBtn;
+    private Button refreshBtn;
 
     private DetailedInformationController detailedController = new DetailedInformationController(this);
     private ForwardCreateController forwardCreateController = new ForwardCreateController(this);
+    private SearchRecipeModel searchRecipeModel = SearchRecipeModel.getModel();
+    private SearchRecipeController searchRecipeController = new SearchRecipeController(searchRecipeModel, this);
+    private LoginModel loginModel = LoginModel.getLoginModel();
+    private RefreshController refreshController = new RefreshController(this);
+
 
     public MainView(List<Recipe> recipes, String userId) {
         this.recipes = recipes;
@@ -64,16 +77,20 @@ public class MainView {
         tSearchRecipe = new TextField();
         searchRecipeBtn = new Button("search");
         searchRecipeBtn.setPrefSize(100, 25);
+        refreshBtn = new Button("Refresh");
 
-        header.getChildren().addAll(createRecipeBtn, lSearchRecipe, tSearchRecipe, searchRecipeBtn);
+        header.setSpacing(20.0);
+        header.getChildren().addAll(createRecipeBtn, lSearchRecipe, tSearchRecipe, searchRecipeBtn, refreshBtn);
         root.setTop(header);
         header.setPadding(new Insets(20, 20, 40, 20));
         header.setMargin(createRecipeBtn, new Insets(0, 30, 0, 0));
         header.setMargin(searchRecipeBtn, new Insets(0, 0, 0, 10));
         header.setMargin(lSearchRecipe, new Insets(0, 5, 0, 0));
         createRecipeBtn.setOnAction(forwardCreateController);
+        searchRecipeBtn.setOnAction(searchRecipeController);
+        refreshBtn.setOnAction(refreshController);
 
-        content = new TilePane();
+        content = new FlowPane();
         initializeRecipes();
         root.setCenter(content);
 
@@ -81,7 +98,7 @@ public class MainView {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("My Cookbook~");
-        stage.setWidth(810);
+        stage.setWidth(900);
         stage.setHeight(640);
 
         // for debug
@@ -133,5 +150,39 @@ public class MainView {
 
     public void createRecipe() {
         CreateRecipeView createRecipeView = new CreateRecipeView();
+    }
+
+    public void searchRecipe() {
+        String name = tSearchRecipe.getText();
+        recipes = searchRecipeModel.searchRecipe(name);
+    }
+
+    public List<Recipe> getRecipes(){return recipes;}
+
+    public void update() {
+        if (recipes == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Sorry");
+            alert.setContentText("No recipe found *^*");
+            alert.showAndWait();
+
+        } else {
+            SearchRecipeView searchRecipeView = new SearchRecipeView(recipes, this);
+            searchRecipeView.start();
+        }
+    }
+
+    public void refreshPage() {
+        try {
+            recipes = loginModel.getFavRecipes();
+        } catch (SQLException e) {
+            System.out.println("Refresh failure!!!");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Refresh");
+            alert.setContentText("Fail to refresh the page!!!");
+            alert.showAndWait();
+            return;
+        }
+        initializeRecipes();
     }
 }

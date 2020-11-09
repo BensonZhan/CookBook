@@ -13,10 +13,10 @@ public class IngredientMapper implements RowMapper<Ingredient>{
     @Override
     public Ingredient getRowMapper(ResultSet rs) throws SQLException {
         Ingredient ingredient = new Ingredient();
-        ingredient.setId(rs.getInt(1));
-        ingredient.setIngredientName(rs.getString(2));
-        ingredient.setAmount(rs.getString(3));
-        ingredient.setPrepAction(rs.getString(4));
+        ingredient.setId(rs.getInt("id"));
+        ingredient.setAmount(rs.getString("amount"));
+        ingredient.setIngredientName(rs.getString("name"));
+        ingredient.setPrepAction(rs.getString("action"));
         ingredient.setRecipeName(rs.getString(5));
 
         return ingredient;

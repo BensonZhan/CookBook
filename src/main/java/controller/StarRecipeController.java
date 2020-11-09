@@ -4,16 +4,16 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import view.DetailedRecipeView;
-
+import view.StarableView;
 
 /**
  *
  */
 public class StarRecipeController implements EventHandler<ActionEvent> {
 
-    private DetailedRecipeView view;
+    private StarableView view;
 
-    public StarRecipeController(DetailedRecipeView view) {
+    public StarRecipeController(StarableView view) {
         this.view = view;
     }
 
@@ -22,14 +22,10 @@ public class StarRecipeController implements EventHandler<ActionEvent> {
         Button btn = (Button) actionEvent.getSource();
         String userData = (String) btn.getUserData();
         if ("star".equals(userData)) {
-            // 执行unstar操作
-
+            // unstar operation
             view.updateStar(0);
-
         } else {
-            // 执行star操作
-
-
+            // star operation
             view.updateStar(1);
         }
     }

@@ -95,8 +95,7 @@ public class LoginModel {
             user = loginDao.login(userId, password);
             if (user != null) {
                 res = 1;
-                recipes = loginDao.getFavRecipes(userId);
-                recipes.forEach(System.out::println);
+                recipes = getFavRecipes();
             }
         } catch (SQLException e) {
             System.out.println(userId + " fail to login!");
@@ -118,5 +117,10 @@ public class LoginModel {
             return user.getUserId();
         }
         return null;
+    }
+
+    public List<Recipe> getFavRecipes() throws SQLException {
+        recipes = loginDao.getFavRecipes(user.getUserId());
+        return recipes;
     }
 }

@@ -37,6 +37,7 @@ public class CreateRecipeView {
     private Button saveRecipeBtn;
     private Button addPictureBtn;
     private FileChooser chooser;
+    private Label lPicName;
 
     private String picPath;
 
@@ -105,7 +106,9 @@ public class CreateRecipeView {
         informationPane.setHgap(10);
         informationPane.setVgap(5);
 
-        upperPane.getChildren().addAll(informationPane, addPictureBtn, saveRecipeBtn);
+        lPicName = new Label();
+
+        upperPane.getChildren().addAll(informationPane, addPictureBtn, lPicName, saveRecipeBtn);
         saveRecipeBtn.setOnAction(createRecipeController);
         addPictureBtn.setOnAction(addPictureController);
 
@@ -203,5 +206,7 @@ public class CreateRecipeView {
             return;
         }
         picPath = createRecipeModel.getPicPath(file);
+        int index = picPath.lastIndexOf("\\") + 1;
+        lPicName.setText(picPath.substring(index));
     }
 }

@@ -60,7 +60,7 @@ public class StarModel {
             DBUtils.commitTx();
             res = true;
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("Duplicated recipe name");
             try {
                 DBUtils.rollbackTx();
             } catch (SQLException ex) {
