@@ -49,8 +49,6 @@ public class RegisterModel {
     public int register() {
         int res = 0;
         try {
-            DBUtils.startTx();
-
             String userId = user.getUserId();
             String password = user.getPasswd();
             String nickname = user.getNickname();
@@ -74,21 +72,9 @@ public class RegisterModel {
             if (res == 1) {
                 registerDao.createFavTable(userId);
             }
-            DBUtils.commitTx();
         } catch (SQLException e) {
             e.printStackTrace();
             res = 2;
-            try {
-                DBUtils.rollbackTx();
-            } catch (SQLException ex) {
-                System.out.println("Fail to rollback!");
-            }
-        } finally {
-            try {
-                DBUtils.closeTx();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
 
         return res;
