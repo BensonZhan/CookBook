@@ -48,7 +48,7 @@ public class LoginView extends Application {
     private Stage stage;
     private GridPane root;
 
-    private ForwardRegisterController forwardRegisterController = new ForwardRegisterController();
+    private ForwardRegisterController forwardRegisterController = new ForwardRegisterController(this);
     private ChangeValCodeController valCodeController = new ChangeValCodeController(this);
     private LoginController loginController = new LoginController(this);
     private LoginModel model = LoginModel.getLoginModel();
@@ -56,6 +56,9 @@ public class LoginView extends Application {
 
     private boolean hasShowed = false;
 
+    /**
+     * Construct an empty object.
+     */
     public LoginView() {
 
     }
@@ -231,5 +234,12 @@ public class LoginView extends Application {
         } else {
             showResult(res);
         }
+    }
+
+    /**
+     * Show the register view.
+     */
+    public void showRegisterView() {
+        new RegisterView().start();
     }
 }

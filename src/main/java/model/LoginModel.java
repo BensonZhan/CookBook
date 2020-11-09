@@ -27,7 +27,7 @@ public class LoginModel {
 
     /**
      * Obtain the same object of LoginModel
-     * @return An instance of RegisterModel
+     * @return An instance of LoginModel
      */
     public static LoginModel getLoginModel() {
         if (model == null) {
@@ -104,10 +104,6 @@ public class LoginModel {
         return res;
     }
 
-    public List<Recipe> getRecipes() {
-        return recipes;
-    }
-
     /**
      * Get the userId of the user.
      * @return The userId of the user if the user has logged in, or if not, return null.
@@ -119,8 +115,17 @@ public class LoginModel {
         return null;
     }
 
+    /**
+     * Gte the stared recipes of the user.
+     * @return The recipes. If not found, return null.
+     * @throws SQLException
+     */
     public List<Recipe> getFavRecipes() throws SQLException {
         recipes = loginDao.getFavRecipes(user.getUserId());
+        return recipes;
+    }
+
+    public List<Recipe> getRecipes() {
         return recipes;
     }
 }

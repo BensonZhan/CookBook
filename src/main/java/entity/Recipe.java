@@ -16,7 +16,7 @@ public class Recipe {
     private int prepTime;
     // Unit: person
     private int serve;
-    // Unit: hour
+    // Unit: Minute
     private int cookTime;
     private String picPath;
     private List<String> instructions;

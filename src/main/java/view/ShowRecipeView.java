@@ -11,7 +11,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.OutputPDFModel;
@@ -35,7 +38,6 @@ public class ShowRecipeView implements StarableView, PrintableView {
     private String userId;
     private BorderPane root = new BorderPane();
     private HBox upperPane = new HBox();
-    private VBox rightPane = new VBox();
     private GridPane centerPane = new GridPane();
     private FlowPane bottomPane = new FlowPane();
 

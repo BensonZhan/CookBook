@@ -9,6 +9,11 @@ import utils.RecipeMapper;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Create the recipe in the DB.
+ * @author Runxun Xiao
+ * @see dao.CreateRecipeDao
+ */
 public class CreateRecipeDaoImpl implements CreateRecipeDao {
 
     @Override

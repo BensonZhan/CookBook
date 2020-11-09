@@ -20,5 +20,11 @@ public interface LoginDao {
      */
     User login(String userId, String password) throws SQLException;
 
+    /**
+     * Get the recipes which is stared by the user.
+     * @param userId The id of the user
+     * @return The stared recipes with no ingredients information. If not found, return null.
+     * @throws SQLException
+     */
     List<Recipe> getFavRecipes(String userId) throws SQLException;
 }

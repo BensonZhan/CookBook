@@ -5,10 +5,17 @@ import dao.impl.CreateRecipeDaoImpl;
 import entity.Ingredient;
 import entity.Recipe;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Iterator;
 
+/**
+ * The model to create a recipe.
+ * @author Runxun Xiao
+ */
 public class CreateRecipeModel {
 
     private static CreateRecipeModel model;
@@ -17,6 +24,10 @@ public class CreateRecipeModel {
 
     private CreateRecipeModel() {}
 
+    /**
+     * Offers the same object at any time.
+     * @return The object of CreateRecipe class.
+     */
     public static CreateRecipeModel getModel() {
         if (model == null) {
             synchronized (LoginModel.class) {
@@ -30,7 +41,7 @@ public class CreateRecipeModel {
     }
 
     /**
-     *
+     * Create a recipe.
      * @param recipe Recipe has to be created.
      * @return -1 means name has problems, -2 means ingredients have problems, -3 means instructions have problems, -4 means wrong picPath, -5 means insert failure
      */
@@ -87,6 +98,11 @@ public class CreateRecipeModel {
         return 0;
     }
 
+    /**
+     * Get the path from the chosen file.
+     * @param file The file which the user chooses.
+     * @return
+     */
     public String getPicPath(File file) {
         String path = file.getAbsolutePath();
         if (path == null || !(path.endsWith(".png") || path.endsWith(".jpg") || path.endsWith(".jpeg")) ) {
@@ -96,6 +112,12 @@ public class CreateRecipeModel {
 
     }
 
+    /**
+     * Move the picture to specified directory.
+     * @param picPath The path of the picture.
+     * @return The new path of the picture.
+     * @throws IOException
+     */
     public String movePic(String picPath) throws IOException {
         FileInputStream fis = null;
         FileOutputStream fos = null;

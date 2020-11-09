@@ -15,7 +15,7 @@ import java.util.List;
 public class RecipeMapper implements RowMapper<Recipe> {
 
     /**
-     * Encapuslate a recipe with the data from the DB.
+     * Encapsulate a recipe with the data from the DB.
      * @param rs The result of the sql query from the DB.
      * @return A recipe object.
      * @throws SQLException

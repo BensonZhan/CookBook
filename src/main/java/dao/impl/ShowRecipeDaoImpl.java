@@ -8,6 +8,11 @@ import utils.IngredientMapper;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * To show the details of a recipe from the DB.
+ * @author Kefan yang
+ * @see dao.ShowRecipeDao
+ */
 public class ShowRecipeDaoImpl implements ShowRecipeDao {
 
     @Override

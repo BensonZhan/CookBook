@@ -13,11 +13,18 @@ public class ChangeValCodeController implements EventHandler<ActionEvent> {
 
     private LoginView loginView;
 
-
+    /**
+     * Construct an object.
+     * @param loginView The view which lets the user to log in.
+     */
     public ChangeValCodeController(LoginView loginView) {
         this.loginView = loginView;
     }
 
+    /**
+     * Runs after the click on the button of changing a validate code picture.
+     * @param mouseEvent
+     */
     @Override
     public void handle(ActionEvent mouseEvent) {
         loginView.changeValCode();

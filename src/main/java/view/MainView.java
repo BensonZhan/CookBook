@@ -1,7 +1,7 @@
 package view;
 
-import controller.ForwardCreateController;
 import controller.DetailedInformationController;
+import controller.ForwardCreateController;
 import controller.RefreshController;
 import controller.SearchRecipeController;
 import entity.Recipe;
@@ -14,7 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -53,17 +52,13 @@ public class MainView {
     private RefreshController refreshController = new RefreshController(this);
 
 
-    public MainView(List<Recipe> recipes, String userId) {
-        this.recipes = recipes;
-        this.userId = userId;
-
-        initialNodes();
-    }
-
     public MainView() {
         initialNodes();
     }
 
+    /**
+     * Initialize the components on the view.
+     */
     private void initialNodes() {
         stage = new Stage();
         root = new BorderPane();
@@ -100,14 +95,13 @@ public class MainView {
         stage.setTitle("My Cookbook~");
         stage.setWidth(900);
         stage.setHeight(640);
-
-        // for debug
-//        stage.show();
     }
 
+    /**
+     * Show the view.
+     */
     public void start() {
         initializeRecipes();
-
         stage.show();
     }
 
@@ -123,6 +117,9 @@ public class MainView {
         return userId;
     }
 
+    /**
+     * Load the recipe information to the view.
+     */
     private void initializeRecipes() {
         content.getChildren().clear();
         groups = new ArrayList<>();
@@ -148,10 +145,16 @@ public class MainView {
         }
     }
 
+    /**
+     * Create a view which lets the user to create the recipe.
+     */
     public void createRecipe() {
         CreateRecipeView createRecipeView = new CreateRecipeView();
     }
 
+    /**
+     * Search recipes by a specified keyword.
+     */
     public void searchRecipe() {
         String name = tSearchRecipe.getText();
         recipes = searchRecipeModel.searchRecipe(name);
@@ -159,6 +162,9 @@ public class MainView {
 
     public List<Recipe> getRecipes(){return recipes;}
 
+    /**
+     * Show the result of the searched recipes.
+     */
     public void update() {
         if (recipes == null) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -172,6 +178,9 @@ public class MainView {
         }
     }
 
+    /**
+     * Refresh the page.
+     */
     public void refreshPage() {
         try {
             recipes = loginModel.getFavRecipes();

@@ -13,10 +13,18 @@ import view.SearchRecipeView;
 public class ShowRecipeController implements EventHandler<ActionEvent> {
     private SearchRecipeView view;
 
+    /**
+     * Constructs an object.
+     * @param searchRecipeView The view which shows the results of searching recipes.
+     */
     public ShowRecipeController(SearchRecipeView searchRecipeView) {
         this.view = searchRecipeView;
     }
 
+    /**
+     * Run after the click on the button of showing details of a recipe.
+     * @param actionEvent
+     */
     @Override
     public void handle(ActionEvent actionEvent) {
 
@@ -25,7 +33,5 @@ public class ShowRecipeController implements EventHandler<ActionEvent> {
 
         // step into the detailed recipe window
         view.showRecipeView(recipe);
-
-
     }
 }

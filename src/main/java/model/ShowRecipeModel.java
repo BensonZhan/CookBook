@@ -8,6 +8,10 @@ import entity.Recipe;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * The model to get a detailed recipe.
+ * @author Kefan Yang
+ */
 public class ShowRecipeModel {
 
     private static ShowRecipeModel model;
@@ -17,6 +21,10 @@ public class ShowRecipeModel {
 
     private ShowRecipeModel() {}
 
+    /**
+     * Obtain the same object of ShowRecipeModel
+     * @return An instance of ShowRecipeModel
+     */
     public static ShowRecipeModel getModel() {
         if (model == null) {
             synchronized (ShowRecipeModel.class) {
@@ -28,6 +36,11 @@ public class ShowRecipeModel {
         return model;
     }
 
+    /**
+     * Get a detailed recipe.
+     * @param recipe The recipe which has not the ingredients.
+     * @return A detailed recipe.
+     */
     public Recipe showRecipe(Recipe recipe) {
         List<Ingredient> ingre = null;
         try {
@@ -39,11 +52,10 @@ public class ShowRecipeModel {
         return recipe;
     }
 
-    public void setServeAmount(Recipe recipe, String serve) {
-        this.recipe = recipe;
-        this.serve = serve;
-    }
-
+    /**
+     * Calculate the corresponding information when the serve amount changes.
+     * @return A recipe which has been calculated.
+     */
     public Recipe calculateServe() {
         if (recipe == null) {
             return null;
@@ -94,5 +106,10 @@ public class ShowRecipeModel {
             recipe.setServe(serveAmount);
         }
         return recipe;
+    }
+
+    public void setServeAmount(Recipe recipe, String serve) {
+        this.recipe = recipe;
+        this.serve = serve;
     }
 }

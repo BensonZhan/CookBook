@@ -17,6 +17,10 @@ public class SearchRecipeModel {
 
     public SearchRecipeModel() {}
 
+    /**
+     * Obtain the same object of SearchRecipeModel
+     * @return An instance of SearchRecipeModel
+     */
     public static SearchRecipeModel getModel() {
         if (model == null) {
             synchronized (LoginModel.class) {
@@ -28,6 +32,11 @@ public class SearchRecipeModel {
         return model;
     }
 
+    /**
+     * Search recipes with specified name.
+     * @param name The keyword of a recipe name.
+     * @return The recipes which names contain the name parameter.
+     */
     public List<Recipe> searchRecipe(String name)  {
         if (name == null || "".equals(name.trim())) {
             return null;

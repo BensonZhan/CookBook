@@ -1,12 +1,11 @@
 package view;
 
-import controller.SearchRecipeController;
 import controller.ShowRecipeController;
 import entity.Recipe;
-import javafx.geometry.Orientation;
-import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -22,7 +21,6 @@ import java.util.List;
 public class SearchRecipeView {
 
     private ShowRecipeModel model = ShowRecipeModel.getModel();
-    private SearchRecipeController searchRecipeController;
 
     //display area of the recipes' brief information
     private Label lRecipeName;
@@ -34,11 +32,15 @@ public class SearchRecipeView {
     private ScrollPane sc;
     private Stage primaryStage = new Stage();
     private MainView mainView;
-    private ShowRecipeView showRecipeView= new ShowRecipeView();
     private List<Recipe> recipes;
 
     private ShowRecipeController showRecipeController= new ShowRecipeController(this);
 
+    /**
+     * Construct an object with recipes and view.
+     * @param recipes The searched recipes.
+     * @param view The main view.
+     */
     public SearchRecipeView(List<Recipe> recipes, MainView view) {
         this.recipes = recipes;
         this.mainView = view;
@@ -62,11 +64,17 @@ public class SearchRecipeView {
         primaryStage.setHeight(640);
     }
 
+    /**
+     * Show the view.
+     */
     public void start() {
         showRecipes();
         primaryStage.show();
     }
 
+    /**
+     * Load the recipes information to the view.
+     */
     private void showRecipes() {
         groups = new ArrayList<>();
         if (recipes != null) {
@@ -91,15 +99,11 @@ public class SearchRecipeView {
         }
 
     }
-    public String getRecipeInfo(String recipeName, String serve, String prepTime, String cookTime) {
-        String recipeInfo = null;
-        for (Recipe recipe : mainView.getRecipes()) {
-            recipeInfo = new String(recipe.getRecipeName() + "\nPrep Time: " + recipe.getPrepTime() + "\nServe: "
-                    + recipe.getServe() + "\nCook time: " + recipe.getCookTime());
-        }
-        return recipeInfo;
-    }
 
+    /**
+     * Show the recipes in a view.
+     * @param recipe The recipe which should be shown in details.
+     */
     public void showRecipeView(Recipe recipe)  {
         Recipe newRecipe = model.showRecipe(recipe);
         ShowRecipeView showRecipeView = new ShowRecipeView();

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="ValidateCode">
+    <archive path="F:/projects/CookBook/lib/ValidateCode.jar" />
+  </library>
+  <library name="itextpdf-5.4.3">
+    <archive path="F:/projects/CookBook/lib/itextpdf-5.4.3.jar" />
+  </library>
+  <library name="javafx11" />
+  <library name="javafx-11">
+    <archive path="F:/projects/CookBook/lib/javafx-base-11-win.jar" />
+    <archive path="F:/projects/CookBook/lib/javafx-controls-11-win.jar" />
+    <archive path="F:/projects/CookBook/lib/javafx-fxml-11-win.jar" />
+    <archive path="F:/projects/CookBook/lib/javafx-graphics-11-win.jar" />
+  </library>
+  <library name="javafx--11">
+    <archive path="F:/projects/CookBook/lib/javafx-controls-11.jar" />
+    <archive path="F:/projects/CookBook/lib/javafx-base-11.jar" />
+    <archive path="F:/projects/CookBook/lib/javafx-fxml-11.jar" />
+    <archive path="F:/projects/CookBook/lib/javafx-graphics-11.jar" />
+  </library>
+  <library name="javafx.base" />
+  <library name="javafx.controls" />
+  <library name="junit-4.1" />
+  <library name="junit-4.11" />
+  <library name="junit-4.8.2">
+    <archive path="F:/projects/CookBook/lib/junit-4.8.2.jar" />
+  </library>
+  <library name="mysql-connector-java-8.0.15">
+    <archive path="F:/projects/CookBook/lib/mysql-connector-java-8.0.15.jar" />
+  </library>
+  <library name="mysql-connector-java-8.0.17" />
+</eclipse-userlibraries>
+

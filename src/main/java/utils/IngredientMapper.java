@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * This class is used to encapsulate the ingredients from the database
+ * This class is used to encapsulate the ingredients from the database.
  * @author Haoran Yang
  */
 public class IngredientMapper implements RowMapper<Ingredient>{

@@ -17,6 +17,7 @@ import java.util.List;
  * @see dao.LoginDao
  */
 public class LoginDaoImpl implements LoginDao {
+
     @Override
     public User login(String userId, String password) throws SQLException {
         String sql = "select * from users where user_id = ? and password = ?";

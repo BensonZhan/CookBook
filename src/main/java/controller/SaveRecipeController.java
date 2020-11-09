@@ -10,11 +10,22 @@ import view.DetailedRecipeView;
  * @author Haoran Yang
  */
 public class SaveRecipeController implements EventHandler<ActionEvent> {
-    DetailedRecipeView view;
-    SaveRecipeModel model = SaveRecipeModel.getInstance();
+
+    private DetailedRecipeView view;
+    private SaveRecipeModel model = SaveRecipeModel.getInstance();
+
+    /**
+     * Constructs an object.
+     * @param view The view which shows the details of a recipe.
+     */
     public SaveRecipeController(DetailedRecipeView view){
         this.view = view;
     }
+
+    /**
+     * Runs after the click on the button of saving a recipe.
+     * @param actionEvent
+     */
     @Override
     public void handle(ActionEvent actionEvent) {
         view.saveUpdate();

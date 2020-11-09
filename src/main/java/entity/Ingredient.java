@@ -14,9 +14,20 @@ public class Ingredient {
     private String prepAction;
     private String recipeName;
 
+    /**
+     * Construct an object with no information.
+     */
     public Ingredient() {
     }
 
+    /**
+     * Construct a detailed object.
+     * @param id The id of the ingredient.
+     * @param ingredientName The name of the ingredient.
+     * @param amount The amount of the ingredient.
+     * @param prepAction The preparation action of the ingredient.
+     * @param recipeName The recipe name which has this ingredient.
+     */
     public Ingredient(int id, String ingredientName, String amount, String prepAction, String recipeName) {
         this.id = id;
         this.ingredientName = ingredientName;
@@ -25,6 +36,12 @@ public class Ingredient {
         this.recipeName = recipeName;
     }
 
+    /**
+     * Construct a semi-detailed object.
+     * @param ingredientName The name of the ingredient.
+     * @param amount The amount of the ingredient.
+     * @param prepAction The preparation action of the ingredient.
+     */
     public Ingredient(String amount, String ingredientName, String prepAction) {
         this.amount = amount;
         this.ingredientName = ingredientName;

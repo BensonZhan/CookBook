@@ -26,7 +26,6 @@ import java.util.Scanner;
  *
  * @author Haoran Yang
  */
-@SuppressWarnings("all")
 public class DetailedRecipeView implements StarableView, PrintableView {
     private Recipe recipe;
     private List<Ingredient> ingredients;
@@ -35,7 +34,6 @@ public class DetailedRecipeView implements StarableView, PrintableView {
     private String userId;
     private BorderPane root = new BorderPane();
     private HBox upperPane = new HBox();
-    private VBox rightPane = new VBox();
     private GridPane centerPane = new GridPane();
     private FlowPane bottomPane = new FlowPane();
 
@@ -70,8 +68,10 @@ public class DetailedRecipeView implements StarableView, PrintableView {
     private OutputPDFModel pdfModel;
     private OutputTXTModel txtModel;
 
+    /**
+     * Construct a detailed view of a recipe. Initialize the components.
+     */
     public DetailedRecipeView() {
-
         /**
          * initialize the view
          */
@@ -125,9 +125,9 @@ public class DetailedRecipeView implements StarableView, PrintableView {
     }
 
     /**
-     * start show the detailed recipe view
-     * @param recipe :the recipe to be showed
-     * @param userId: the user ID
+     * Show the detailed recipe view
+     * @param recipe The recipe to be showed
+     * @param userId The user ID
      */
     public void start(Recipe recipe, String userId){
         String recipeName = recipe.getRecipeName();
@@ -168,8 +168,6 @@ public class DetailedRecipeView implements StarableView, PrintableView {
             tIngredients.add(t3);
         }
 
-
-
         String[] instructions = recipe.getInstructions().get(0).split("\\$");
         if (instructions.length > 0) {
             tInstructions.setText(instructions[0]);
@@ -183,51 +181,50 @@ public class DetailedRecipeView implements StarableView, PrintableView {
         initialCenter();
         initialBottom();
 
-
         stage.setTitle(recipe.getRecipeName());
         stage.show();
     }
 
     /**
-     * get the name of detailed recipe
-     * @return the name of detailed recipe
+     * Get the name of detailed recipe
+     * @return The name of detailed recipe
      */
     public String getRecipeName(){
         return tRecipeName.getText();
     }
 
     /**
-     * get the prepTime of the recipe
-     * @return the prepTime of the recipe
+     * Get the prepTime of the recipe
+     * @return The prepTime of the recipe
      */
     public String getPrepTime(){
         return tPrepTime.getText();
     }
     /**
-     * get the serve of the recipe
-     * @return the serve of the recipe
+     * Get the serve of the recipe
+     * @return The serve of the recipe
      */
     public String getServe(){
         return tServe.getText();
     }
 
     /**
-     * get the cook time of the reipe
-     * @return the cooktime
+     * Get the cook time of the reipe
+     * @return the Cooktime
      */
     public String getCookTime(){
         return tCookTime.getText();
     }
 
     /**
-     * get the pic path of the recipe
-     * @return the pic path
+     * Get the pic path of the recipe
+     * @return The pic path
      */
     public String getPicpath(){ return recipe.getPicPath(); }
 
     /**
-     * get the list of ingredients
-     * @return the list of ingredients
+     * Get the list of ingredients
+     * @return The list of ingredients
      */
     public List<Ingredient> getIngredients(){
         List<Ingredient> temp = new ArrayList<Ingredient>();
@@ -252,8 +249,8 @@ public class DetailedRecipeView implements StarableView, PrintableView {
     }
 
     /**
-     * get the instructions of the recipe
-     * @return list of instructions
+     * Get the instructions of the recipe
+     * @return List of instructions
      */
     public List<String> getInstructions(){
         List<String> list = new ArrayList<String>();
@@ -267,13 +264,13 @@ public class DetailedRecipeView implements StarableView, PrintableView {
 
 
     /**
-     * get the userId
-     * @return userId
+     * Get the userId
+     * @return UserId
      */
     public String getUserId(){ return userId;}
 
     /**
-     * the pop up window of pressing the save button
+     * The pop up window of pressing the save button
      */
     public void saveUpdate(){
         //call the model to handle
@@ -308,7 +305,7 @@ public class DetailedRecipeView implements StarableView, PrintableView {
     }
 
     /**
-     * the update of the window when save as PDF
+     * The update of the window when save as PDF
      */
     public void updatePDF(){
         pdfModel = OutputPDFModel.getModel();
@@ -336,7 +333,7 @@ public class DetailedRecipeView implements StarableView, PrintableView {
     }
 
     /**
-     * the update of the window when save as TXT
+     * The update of the window when save as TXT
      */
     public void updateTXT(){
         txtModel = OutputTXTModel.getModel();
@@ -364,7 +361,9 @@ public class DetailedRecipeView implements StarableView, PrintableView {
         }
     }
 
-
+    /**
+     * Initialize the upper part of the view.
+     */
     private void initialUpper() {
         GridPane informationPane = new GridPane();
         informationPane.add(lRecipeName, 0, 0);
@@ -397,6 +396,9 @@ public class DetailedRecipeView implements StarableView, PrintableView {
         root.setTop(upperPane);
     }
 
+    /**
+     * Initialize the center part of the view.
+     */
     private void initialCenter() {
         centerPane.add(lIngredients, 1, 1);
         centerPane.add(new Label("Amount"), 2, 1);
@@ -413,6 +415,9 @@ public class DetailedRecipeView implements StarableView, PrintableView {
         root.setCenter(centerPane);
     }
 
+    /**
+     * Initialize the bottom part of the view.
+     */
     private void initialBottom () {
         bottomPane.getChildren().addAll(lInstructions, tInstructions);
         bottomPane.setAlignment(Pos.BOTTOM_CENTER);
@@ -420,6 +425,9 @@ public class DetailedRecipeView implements StarableView, PrintableView {
         root.setBottom(bottomPane);
     }
 
+    /**
+     * Star and unstar the recipe.
+     */
     public void updateStar(int i) {
         if (i == 0) {
             starRecipeBtn.setGraphic(new ImageView(this.getClass().getClassLoader().getResource("./icons/unstar.png").toExternalForm()));
@@ -447,6 +455,9 @@ public class DetailedRecipeView implements StarableView, PrintableView {
         }
     }
 
+    /**
+     * Show the window of choosing a picture.
+     */
     public void showPicChooser() {
         chooser.setTitle("Choose a picture");
         File file = chooser.showOpenDialog(new Stage());

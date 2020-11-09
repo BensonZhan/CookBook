@@ -20,6 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * The view to create a recipe.
+ * @author Runxun Xiao
+ */
 public class CreateRecipeView {
 
     private Label lRecipeName;
@@ -49,7 +53,9 @@ public class CreateRecipeView {
     private AddPictureController addPictureController = new AddPictureController(this);
     private CreateRecipeModel createRecipeModel = CreateRecipeModel.getModel();
 
-
+    /**
+     * Construct an object and initialize the components.
+     */
     public CreateRecipeView() {
         lRecipeName = new Label("Recipe name : ");
         tRecipeName = new TextField();
@@ -91,6 +97,9 @@ public class CreateRecipeView {
         stage.show();
     }
 
+    /**
+     * Initialize the upper part of the view.
+     */
     private void initialUpper() {
         GridPane informationPane = new GridPane();
         informationPane.add(lRecipeName, 0, 0);
@@ -114,10 +123,12 @@ public class CreateRecipeView {
 
 
         upperPane.setSpacing(20);
-
         root.setTop(upperPane);
     }
 
+    /**
+     * Initialize the center part of the view.
+     */
     private void initialCenter() {
         centerPane.add(lIngredients, 1, 1);
         centerPane.add(new Label("Amount"), 2, 1);
@@ -134,12 +145,18 @@ public class CreateRecipeView {
         root.setCenter(centerPane);
     }
 
+    /**
+     * Initialize the bottom part of the view.
+     */
     private void initialBottom () {
         bottomPane.getChildren().addAll(lInstructions, tInstructions);
         bottomPane.setAlignment(Pos.BOTTOM_CENTER);
         root.setBottom(bottomPane);
     }
 
+    /**
+     * Create a recipe and show the result.
+     */
     public void createRecipe() {
         Recipe recipe = new Recipe();
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -199,6 +216,9 @@ public class CreateRecipeView {
         alert.showAndWait();
     }
 
+    /**
+     * Show the window of choosing a picture.
+     */
     public void showPicChooser() {
         chooser.setTitle("Choose a picture");
         File file = chooser.showOpenDialog(new Stage());

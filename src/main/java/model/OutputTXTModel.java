@@ -21,6 +21,10 @@ public class OutputTXTModel {
 
     private OutputTXTModel() {}
 
+    /**
+     * Obtain the same object of OutputTXTModel
+     * @return An instance of OutputTXTModel
+     */
     public static OutputTXTModel getModel() {
         if (model == null) {
             synchronized (LoginModel.class) {
@@ -33,7 +37,11 @@ public class OutputTXTModel {
         return model;
     }
 
-
+    /**
+     * Create a txt file of the recipe
+     * @param recipe The recipe which will be stored in the txt file.
+     * @param filePath The aimed path of the txt file.
+     */
     public void printTXT(Recipe recipe, String filePath) {
         if (filePath == null) {
             return;

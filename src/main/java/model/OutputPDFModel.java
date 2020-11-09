@@ -19,6 +19,10 @@ public class OutputPDFModel {
 
     private OutputPDFModel() {}
 
+    /**
+     * Obtain the same object of OutputPDFModel
+     * @return An instance of OutputPDFModel
+     */
     public static OutputPDFModel getModel() {
         if (model == null) {
             synchronized (LoginModel.class) {

@@ -16,10 +16,18 @@ public class DetailedInformationController implements EventHandler<ActionEvent> 
 
     private MainView view;
 
+    /**
+     * Construct an object.
+     * @param mainView The main view providing all the functions.
+     */
     public DetailedInformationController(MainView mainView) {
         this.view = mainView;
     }
 
+    /**
+     * Run after the click on button of showing a recipe.
+     * @param actionEvent
+     */
     @Override
     public void handle(ActionEvent actionEvent) {
 
@@ -27,10 +35,7 @@ public class DetailedInformationController implements EventHandler<ActionEvent> 
         Recipe recipe = (Recipe) source.getUserData();
         System.out.println(recipe);
 
-        // step into the detailed information window
         DetailedRecipeView detailedRecipeView = new DetailedRecipeView();
         detailedRecipeView.start(recipe, view.getUserId());
-
-
     }
 }

@@ -12,15 +12,12 @@ public class User {
     private String passwd;
     private String nickname;
 
+    /**
+     * Construct an empty object.
+     */
     public User() {
     }
 
-    public User(int id, String userId, String passwd, String nickname) {
-        this.id = id;
-        this.userId = userId;
-        this.passwd = passwd;
-        this.nickname = nickname;
-    }
 
     public int getId() {
         return id;
