@@ -56,6 +56,7 @@ public class SearchRecipeView {
         content = new TilePane();
         sc = new ScrollPane(content);
         sc.setFitToHeight(true);
+        content.setStyle("-fx-background-color:#C1FFC1");
         Scene scene = new Scene(sc, 300, 130, Color.WHITE);
 
 
